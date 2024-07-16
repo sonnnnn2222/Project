@@ -3,6 +3,7 @@ package com.viethcn.shopbanhang.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DpHelper extends SQLiteOpenHelper {
     public DpHelper(Context context) {
@@ -13,7 +14,11 @@ public class DpHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //THUTHU(matt text, hoten text, matkhau text)
         String dbThuThu = "create table THUTHU(matt text primary key, hoten text, matkhau text)";
-        db.execSQL(dbThuThu);
+        db.execSQL(dbThuThu) ;
+        String dbThanhVien = "create table THANHVIEN(matv integer primary key autoincrement )";
+
+
+        Log.d("test", "test");
     }
 
     @Override
