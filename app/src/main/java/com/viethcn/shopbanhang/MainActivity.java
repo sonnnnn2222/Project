@@ -9,6 +9,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.viethcn.shopbanhang.dao.SachDAO;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,5 +19,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        SachDAO dao = new SachDAO(this);
+        dao.getDSDauSach();
     }
 }
