@@ -6,12 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DpHelper extends SQLiteOpenHelper {
     public DpHelper(Context context) {
-        super(context,"banhang",null,1);
+        super(context,"DUANMAU",null,1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        String dbThuThu = "create table THUTHU(matt text primary key, hoten text, matkhau text)";
+        db.execSQL(dbThuThu);
     }
 
     @Override
