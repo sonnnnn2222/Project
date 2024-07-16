@@ -12,13 +12,14 @@ public class DpHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         //THUTHU(matt text, hoten text, matkhau text)
         String dbThuThu = "create table THUTHU(matt text primary key, hoten text, matkhau text)";
         db.execSQL(dbThuThu) ;
         String dbThanhVien = "create table THANHVIEN(matv integer primary key autoincrement )";
 
+   
 
-        Log.d("test", "test");
     }
 
     @Override
