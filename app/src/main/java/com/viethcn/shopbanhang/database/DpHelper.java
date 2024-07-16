@@ -13,9 +13,7 @@ public class DpHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-    String a = "3";
-    String b = "5";
-    String c = a + b;
+   
 
     }
 
