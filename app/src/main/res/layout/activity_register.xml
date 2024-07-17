@@ -1,104 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
     android:gravity="center"
-    android:padding="16dp"
+    android:layout_margin="10dp"
     tools:context=".Login">
 
-    <LinearLayout
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/register"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:textStyle="bold"
+        android:text="Username: "
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/edtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:hint="Nhap Username"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Password: "
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:hint="Nhap Password"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Re-Password: "
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/edtRePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:hint="Nhap lai Password"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="Email : "
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext"
+        android:hint="Nhap Email"/>
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        android:text="REGISTER"
+        android:background="@drawable/custom_button"
+        android:textAllCaps="true"/>
+    <Button
+        android:id="@+id/btnGoBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        android:text="BACK"
+        android:background="@drawable/custom_button"
+        android:textAllCaps="true"/>
 
-        <ImageView
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:src="@drawable/user"/>
-
-
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:background="@drawable/boder"
-            android:padding="10dp"
-            android:layout_marginTop="32dp"
-            android:textSize="24sp"/>
-        <EditText
-            android:id="@+id/edtPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:padding="10dp"
-            android:hint="PassWord"
-            android:background="@drawable/boder"
-            android:textSize="24sp"
-            android:inputType="numberPassword"
-            android:layout_marginTop="24dp"/>
-
-        <EditText
-            android:id="@+id/edtRe_Pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:padding="10dp"
-            android:hint="Re_PassWord"
-            android:background="@drawable/boder"
-            android:textSize="24sp"
-            android:inputType="numberPassword"
-            android:layout_marginTop="24dp"/>
-
-        <LinearLayout
-            android:layout_marginTop="32dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-
-            <Button
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Sing up"
-                android:textSize="24dp"
-                android:backgroundTint="#fff"
-                android:textColor="#000"
-                android:padding="10dp"
-                />
-            <Button
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Bạck"
-                android:textSize="24dp"
-                android:backgroundTint="#fff"
-                android:textColor="#000"
-                android:padding="10dp"
-                />
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:gravity="center"
-            android:textColor="#fff"
-            android:textSize="18sp"/>
-
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
