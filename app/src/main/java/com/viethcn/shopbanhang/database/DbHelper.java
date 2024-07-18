@@ -12,13 +12,19 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String qNguoiDung = "CREATE TABLE NGUOIDUNG (tendangnhap TEXT PRIMARY KEY, matkhau TEXT, hoten TEXT)";
         db.execSQL(qNguoiDung);
-        String qSanPham = "CREATE TABLE SANPHAM (masp INTEGER PRIMARY KEY AUTOINCREMENT, tensp TEXT, giaban INTEGER, soluong INTEGER)";
-        db.execSQL(qSanPham);
+        String dbThanhVien = "CREATE TABLE THANHVIEN(matv integer PRIMARY KEY autoincrement, hoten text, namsinh text )";
+        db.execSQL(dbThanhVien);
+        String dbLoaiSach = "CREATE TABLE LOAISACH(maloai integer PRIMARY KEY autoincrement, tenloai text)";
+        db.execSQL(dbLoaiSach);
+        String dbSach = "CREATE TABLE SACH (masach integer PRIMARY KEY autoincrement, tensach text, giathue integer, maloai integer references LOAISACH(maloai))";
+        db.execSQL(dbSach);
+        String dbPhieuMuon = "CREATE TABLE PHIEUMUON(mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv), tendangnhap TEXT references NGUOIDUNG(tendangnhap), masach integer references SACH(masach), ngay text, trasach integer, tienthue integer)";
+        db.execSQL(dbPhieuMuon);
+
 
         String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet'), ('nhutvuong', '123456789', 'Hoang Cong Nhut Vuong')";
         db.execSQL(dNguoiDung);
-        String dSanPham = "INSERT INTO SANPHAM VALUES(1, 'Bánh', 5000, 2), (2, 'kẹo', 2000, 5), (3, 'Mì tôm', 8000, 20), (4, 'Dầu ăn', 78000, 1)";
-        db.execSQL(dSanPham);
+
     }
 
     @Override
