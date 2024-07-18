@@ -10,11 +10,11 @@
     android:background="#fff"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
-    tools:context=".Login">
+    tools:context=".DangKy">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="247dp"
+        android:layout_height="200dp"
         android:src="@mipmap/caxau" />
 
     <TextView
@@ -44,34 +44,63 @@
         android:background="@drawable/customedt"
         android:hint="Nhâp PassWord" />
 
-    <Button
-        android:id="@+id/btnLogin"
+    <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:textColor="@color/black"
-        android:background="@drawable/custom_button"
-        app:backgroundTint="@null"
-        android:textSize="24sp"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="true"/>
+        android:text="Re_PassWord:"
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/edRePass"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/customedt"
+        android:hint="Nhâp lại PassWord" />
 
     <TextView
-        android:id="@+id/txtForgot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/forgot_password"
-        android:gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="15sp"/>
-
-    <TextView
-        android:id="@+id/txtSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sing_up"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:textSize="15sp"/>
+        android:text="Full Name:"
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/edtFullName"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/customedt"
+        android:hint="Nhập họ tên" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnDangKy"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

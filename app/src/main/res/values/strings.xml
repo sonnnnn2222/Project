@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ShopBanHang</string>
     <string name="forgot_password"><u>Forgot PassWord?</u></string>
+    <string name="sing_up">Don\'t have account?<b>Sign up</b></string>
 </resources>
