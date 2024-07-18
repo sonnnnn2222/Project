@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-//        SachDAO dao = new SachDAO(this);
-//        dao.getDSDauSach();
+        SachDAO dao = new SachDAO(this);
+        dao.getDSDauSach();
     }
 }
