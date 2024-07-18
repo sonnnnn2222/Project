@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/loginbackground"
     android:gravity="center"
-    android:padding="16dp"
+    android:padding="5dp"
     tools:context=".Login">
 
     <LinearLayout
@@ -58,21 +58,12 @@
             android:inputType="numberPassword"
             android:layout_marginTop="5dp"/>
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="120dp"
-            android:text="Remember me"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:textSize="15sp"/>
-
         <LinearLayout
-            android:layout_marginTop="10dp"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_marginTop="20dp">
 
 
 
@@ -82,6 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:layout_marginRight="20dp"
             android:textSize="24dp"
             android:background="@drawable/custom_button"
             app:backgroundTint="@null"
@@ -92,7 +84,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Sing up"
+                android:text="Sign up"
                 android:textSize="24dp"
                 android:background="@drawable/custom_button"
                 app:backgroundTint="@null"
