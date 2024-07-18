@@ -24,6 +24,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
         String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet'), ('nhutvuong', '123456789', 'Hoang Cong Nhut Vuong')";
         db.execSQL(dNguoiDung);
+        db.execSQL("insert into LOAISACH values (1, 'Thiếu nhi'), (2, 'Tình cảm'), (3, 'Giáo Khoa')");
+        db.execSQL("insert into SACH values (1, 'Hãy đợi đấy', 2500, 1), (2, 'Thằng cụi', 3000, 1), (1, 'Sách giáo Khoa', 3500, 3)");
+
 
     }
 
