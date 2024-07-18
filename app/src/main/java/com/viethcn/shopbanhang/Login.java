@@ -25,17 +25,17 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         // anh xa
         EditText edtUser = findViewById(R.id.edtEmail);
-        EditText edtPsas = findViewById(R.id.edtPass);
+        EditText edtPass = findViewById(R.id.edtPass);
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView txtForgot = findViewById(R.id.txtForgot);
-        TextView txtSignUp = findViewById(R.id.btnSignup);
+        Button btnDangKy = findViewById(R.id.btnSignup);
         nguoiDungDAO = new NguoiDungDAO(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String user = edtUser.getText().toString();
-                String pass = edtPsas.getText().toString();
+                String pass = edtPass.getText().toString();
 
                 boolean check = nguoiDungDAO.CheckLogin(user ,pass);
                 if (check){
@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        txtSignUp.setOnClickListener(new View.OnClickListener() {
+        btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this,Register.class));
