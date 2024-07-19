@@ -49,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
                    fragment = new QuanLyLoaiSachFragment();
                }
 
-                FragmentManager fragmentManager = getSupportFragmentManager();
-               fragmentManager.beginTransaction()
-                       .replace(R.id.frameLayout, fragment)
-                       .commit();
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//               fragmentManager.beginTransaction()
+//                       .replace(R.id.frameLayout, fragment)
+//                       .commit();
 
                 getSupportActionBar().setTitle(menuItem.getTitle());
                 drawerLayout.closeDrawer(GravityCompat.START);
