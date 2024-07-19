@@ -43,12 +43,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
+                fragment = new QuanLyPhieuMuonFragment();
                if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
                    fragment = new QuanLyPhieuMuonFragment();
                }else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
                    fragment = new QuanLyLoaiSachFragment();
-               }else {
-                   fragment = new QuanLyPhieuMuonFragment();
                }
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
