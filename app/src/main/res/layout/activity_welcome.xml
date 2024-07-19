@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+    <ImageView
+        android:id="@+id/bookCover"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/book_cover"
+        android:layout_marginBottom="16dp"
+        android:transitionName="bookCoverTransition" />
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bookCover"
+        android:layout_centerHorizontal="true"
+        android:text="Infinite Pages"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#0E0A0A"
+        android:transitionName="appTitleTransition" />
+
+    <TextView
+        android:id="@+id/appSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appTitle"
+        android:layout_centerHorizontal="true"
+        android:text="Your Ultimate Bookstore"
+        android:textSize="18sp"
+        android:textColor="#120E0E"
+        android:transitionName="appSubtitleTransition" />
+</RelativeLayout>

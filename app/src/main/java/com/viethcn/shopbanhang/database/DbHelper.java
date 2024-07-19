@@ -22,7 +22,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(dbPhieuMuon);
 
 
-        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet'), ('nhutvuong', '123456789', 'Hoang Cong Nhut Vuong')";
+        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet'), ('buiphuquy', 'password123', 'Bui Phu Quy'),('trangiabao', 'password123', 'Tran Gia Bao'),('buixuanson', 'password123', 'Bui Xuan Son'),('laiductin', 'password123', 'Lai Duc Tin')";
         db.execSQL(dNguoiDung);
         db.execSQL("insert into LOAISACH values (1, 'Thiếu nhi'), (2, 'Tình cảm'), (3, 'Giáo Khoa')");
         db.execSQL("insert into SACH values (1, 'Hãy đợi đấy', 2500, 1), (2, 'Thằng cụi', 3000, 1), (1, 'Sách giáo Khoa', 3500, 3)");
@@ -34,7 +34,8 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
             db.execSQL("DROP table if exists NGUOIDUNG");
-            db.execSQL("DROP table if exists SANPHAM");
+            db.execSQL("DROP table if exists LOAISACH");
+            db.execSQL("DROP table if exists SACH");
             onCreate(db);
         }
     }
