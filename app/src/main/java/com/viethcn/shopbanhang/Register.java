@@ -21,10 +21,11 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
+
+        // anh xa
         EditText edtUser = findViewById(R.id.edtUser);
         EditText edtPass = findViewById(R.id.edtPass);
         EditText edtRePass = findViewById(R.id.edtRePass);
-        EditText edtEmail = findViewById(R.id.edtEmail);
         Button btnRegister = findViewById(R.id.btnRegister);
         Button btnGoBack = findViewById(R.id.btnGoBack);
 
@@ -36,12 +37,12 @@ public class Register extends AppCompatActivity {
                 String user = edtUser.getText().toString();
                 String pass = edtPass.getText().toString();
                 String repass = edtRePass.getText().toString();
-                String email = edtEmail.getText().toString();
+
 
                 if (!pass.equals(repass)){
                     Toast.makeText(Register.this, "Nhap 2 mat khau khong trung nhau", Toast.LENGTH_SHORT).show();
                 }else{
-                    boolean check = nguoiDungDAO.Register(user ,pass,email);
+                    boolean check = nguoiDungDAO.Register(user ,pass,repass);
                     if (check){
                         Toast.makeText(Register.this, "Dang Ki thanh cong", Toast.LENGTH_SHORT).show();
                         finish();
@@ -59,4 +60,4 @@ public class Register extends AppCompatActivity {
             }
         });
     }
-    }
+}
