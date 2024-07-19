@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.viethcn.shopbanhang.dao.NguoiDungDAO;
 
+
 public class Register extends AppCompatActivity {
     private NguoiDungDAO nguoiDungDAO;
     @Override
