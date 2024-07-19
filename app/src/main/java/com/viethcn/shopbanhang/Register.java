@@ -12,11 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.viethcn.shopbanhang.dao.NguoiDungDAO;
+import com.viethcn.shopbanhang.dao.NguoiDungDao;
 
 
 public class Register extends AppCompatActivity {
-    private NguoiDungDAO nguoiDungDAO;
+    private NguoiDungDao nguoiDungDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class Register extends AppCompatActivity {
         Button btnRegister = findViewById(R.id.btnRegister);
         Button btnGoBack = findViewById(R.id.btnGoBack);
 
-        nguoiDungDAO = new NguoiDungDAO(this);
+        nguoiDungDAO = new NguoiDungDao(this);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
