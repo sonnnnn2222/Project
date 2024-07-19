@@ -26,11 +26,11 @@ public class Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         // anh xa
-        EditText edtUser = findViewById(R.id.edtUser);
-        EditText edtPassWord = findViewById(R.id.edtPass);
+        EditText edtUser = findViewById(R.id.edtUseName);
+        EditText edtPassWord = findViewById(R.id.edtPassWord);
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView txtForgot = findViewById(R.id.txtForgot);
-        TextView txtSingUp = findViewById(R.id.btnSignup);
+        TextView txtSingUp = findViewById(R.id.txtSignUp);
         nguoiDungDao = new NguoiDungDao(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
