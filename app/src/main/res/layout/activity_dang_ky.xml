@@ -37,7 +37,7 @@
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:background="@drawable/custom_button"
         android:hint="Nhâp PassWord" />
 
@@ -48,7 +48,7 @@
         android:textColorHint="#000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:layout_marginBottom="20dp"
         android:background="@drawable/custom_button"
         android:hint="Nhâp lại PassWord" />
