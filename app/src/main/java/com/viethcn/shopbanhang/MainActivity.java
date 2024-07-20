@@ -42,17 +42,17 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment fragment;
+                Fragment fragment = null;
                if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
                    fragment = new QuanLyPhieuMuonFragment();
                }else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
                    fragment = new QuanLyLoaiSachFragment();
                }
 
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//               fragmentManager.beginTransaction()
-//                       .replace(R.id.frameLayout, fragment)
-//                       .commit();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+               fragmentManager.beginTransaction()
+                       .replace(R.id.frameLayout, fragment)
+                       .commit();
 
                 getSupportActionBar().setTitle(menuItem.getTitle());
                 drawerLayout.closeDrawer(GravityCompat.START);
