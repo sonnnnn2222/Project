@@ -5,13 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.viethcn.shopbanhang.database.DbHelper;
+import com.viethcn.shopbanhang.database.DbHepler;
 
 public class NguoiDungDao {
-    private final DbHelper dbHelper;
+    private final DbHepler dbHelper;
 
     public NguoiDungDao(Context context) {
-        dbHelper = new DbHelper(context);
+        dbHelper = new DbHepler(context);
     }
 
 

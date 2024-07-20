@@ -4,10 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DbHelper extends SQLiteOpenHelper {
-    public DbHelper(Context context){
-        super(context, "QUANLYTHUESACH", null, 1);
+public class DbHepler extends SQLiteOpenHelper {
+
+    public DbHepler(Context context){
+        super(context, "THUESACH", null, 1);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String qNguoiDung = "CREATE TABLE NGUOIDUNG (tendangnhap TEXT PRIMARY KEY, matkhau TEXT, hoten TEXT)";
@@ -26,8 +28,6 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(dNguoiDung);
         db.execSQL("insert into LOAISACH values (1, 'Thiếu nhi'), (2, 'Tình cảm'), (3, 'Giáo Khoa')");
         db.execSQL("insert into SACH values (1, 'Hãy đợi đấy', 2500, 1), (2, 'Thằng cụi', 3000, 1), (1, 'Sách giáo Khoa', 3500, 3)");
-
-
     }
 
     @Override
@@ -39,4 +39,4 @@ public class DbHelper extends SQLiteOpenHelper {
             onCreate(db);
         }
     }
-}
+    }

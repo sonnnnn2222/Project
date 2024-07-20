@@ -4,15 +4,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.viethcn.shopbanhang.database.DbHelper;
+import com.viethcn.shopbanhang.database.DbHepler;
 import com.viethcn.shopbanhang.model.Sach;
 
 import java.util.ArrayList;
 
 public class SachDAO {
-    DbHelper dpHelper;
+    DbHepler dpHelper;
     public SachDAO(Context context) {
-        dpHelper = new DbHelper(context);
+        dpHelper = new DbHepler(context);
     }
     // lấy toàn bộ đầu sách có ở trong thư viện
     public ArrayList<Sach> getDSDauSach() {
