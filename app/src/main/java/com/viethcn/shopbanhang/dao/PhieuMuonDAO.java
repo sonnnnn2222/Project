@@ -2,14 +2,14 @@ package com.viethcn.shopbanhang.dao;
 
 import android.content.Context;
 
-import com.viethcn.shopbanhang.database.DbHelper;
+import com.viethcn.shopbanhang.database.DbHepler;
 
 public class PhieuMuonDAO {
 
-    DbHelper dbHelper;
+    DbHepler dbHelper;
 
     public PhieuMuonDAO(Context context) {
-        dbHelper = new DbHelper(context);
+        dbHelper = new DbHepler(context);
     }
 
 
