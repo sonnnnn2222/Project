@@ -19,7 +19,7 @@
             android:name=".DangKy"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

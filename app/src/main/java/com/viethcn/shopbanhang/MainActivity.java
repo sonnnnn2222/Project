@@ -16,7 +16,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.viethcn.shopbanhang.dao.SachDAO;
@@ -34,29 +33,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolBar);
-        FrameLayout fragmentLayout = findViewById(R.id.frameLayout);
+        FrameLayout frameLayout = findViewById(R.id.frameLayout);
         NavigationView navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
-
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment fragment = null;
-               if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
-                   fragment = new QuanLyPhieuMuonFragment();
-               }else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
-                   fragment = new QuanLyLoaiSachFragment();
-               }
+                Fragment fragment;
+                switch (menuItem.getItemId()) {
+                   
 
-                FragmentManager fragmentManager = getSupportFragmentManager();
-               fragmentManager.beginTransaction()
-                       .replace(R.id.frameLayout, fragment)
-                       .commit();
-
-                getSupportActionBar().setTitle(menuItem.getTitle());
-                drawerLayout.closeDrawer(GravityCompat.START);
-
+                }
                 return false;
             }
         });
@@ -65,11 +53,13 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.menu);
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home){
             drawerLayout.openDrawer(GravityCompat.START);
         }
         return super.onOptionsItemSelected(item);
