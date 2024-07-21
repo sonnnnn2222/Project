@@ -13,7 +13,9 @@ public class PhieuMuon {
     private String HoTenDangNhap;
     private String tensach;
 
-    public PhieuMuon(int mapm, int matv, String tendangnhap, int masach, String ngay, int trasach, int tienthue, String tentv, String hoTenDangNhap, String tensach) {
+    //pm.mapm,  pm.matv, tv.hoten , pm.tendangnhap,  nd.hoten ,  pm.masach,  sc.tensach, pm.ngay,  pm.trasach,  pm.tienthue
+
+    public PhieuMuon(int mapm, int matv, String tentv, String tendangnhap, String hoTenDangNhap,  int masach,  String tensach,  String ngay, int trasach, int tienthue) {
         this.mapm = mapm;
         this.matv = matv;
         this.tendangnhap = tendangnhap;
