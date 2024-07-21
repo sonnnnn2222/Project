@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.viethcn.shopbanhang.database.DbHelper;
 import com.viethcn.shopbanhang.model.PhieuMuon;
@@ -43,7 +44,25 @@ public class PhieuMuonDAO {
         }else {
             return true;
         }
+    }
 
+    public boolean ThemPhieuMuon(PhieuMuon phieuMuon) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        //(mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv), tendangnhap TEXT references NGUOIDUNG(tendangnhap), masach integer references SACH(masach), ngay text, trasach integer, tienthue integer
+        contentValues.put("mapm", phieuMuon.getMapm());
+        contentValues.put("matv", phieuMuon.getMatv());
+        contentValues.put("tendangnhap", phieuMuon.getTendangnhap());
+        contentValues.put("ngay", phieuMuon.getNgay());
+        contentValues.put("trasach", phieuMuon.getTrasach());
+        contentValues.put("tienthue", phieuMuon.getTienthue());
+
+        long check = sqLiteDatabase.insert("PHIEUMUON", null, contentValues);
+        if (check == -1) {
+            return false;
+        }else {
+            return true;
+        }
     }
 
 
