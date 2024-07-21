@@ -2,6 +2,7 @@ package com.viethcn.shopbanhang.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -9,9 +10,11 @@ import com.viethcn.shopbanhang.database.DbHelper;
 
 public class NguoiDungDao {
     private final DbHelper dbHelper;
+    SharedPreferences sharedPreferences;
 
     public NguoiDungDao(Context context) {
         dbHelper = new DbHelper(context);
+        sharedPreferences = context.getSharedPreferences("thongtin", Context.MODE_PRIVATE);
     }
 
 
@@ -21,7 +24,16 @@ public class NguoiDungDao {
 
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM NGUOIDUNG WHERE tendangnhap = ? AND matkhau = ?", new String[]{userName, passWord});
         // Nếu cursor có dữ liệu thì trả về true ngược lại là false
-        return cursor.getCount() > 0;
+       if (cursor.getCount() !=0) {
+           cursor.moveToFirst();
+           SharedPreferences.Editor editor = sharedPreferences.edit();
+           editor.putString("tendangnhap", cursor.getString(0));
+           editor.putString("loai", cursor.getString(3));
+           editor.commit();
+           return true;
+       }else {
+           return false;
+       }
     }
 
     // dang ky
