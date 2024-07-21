@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.viethcn.shopbanhang.R;
+import com.viethcn.shopbanhang.dao.PhieuMuonDAO;
 import com.viethcn.shopbanhang.model.PhieuMuon;
 
 import java.nio.charset.spi.CharsetProvider;
@@ -57,6 +59,22 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
         }
         holder.txtTrangThai.setText("Trạng thái:" + trangThai);
         holder.txtTienThue.setText("Mã PM:" + list.get(position).getTienthue());
+
+        holder.btnTraSach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PhieuMuonDAO phieuMuonDAO = new PhieuMuonDAO(context);
+                boolean kiemtra = phieuMuonDAO.thayDoiTrangThai(list.get(holder.getAdapterPosition()).getMapm());
+                if (kiemtra == true) {
+                    list.clear();
+                    list = phieuMuonDAO.getDSPhieuMuon();
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Đã trả sách", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(context, "Thay đổi trạng thái không thành công", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

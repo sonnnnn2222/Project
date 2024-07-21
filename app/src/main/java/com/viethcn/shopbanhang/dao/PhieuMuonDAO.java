@@ -1,5 +1,6 @@
 package com.viethcn.shopbanhang.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -30,6 +31,19 @@ public class PhieuMuonDAO {
         }
 
         return list;
+    }
+
+    public boolean thayDoiTrangThai(int mapm) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("trasach", 1);
+        long check = sqLiteDatabase.update("PHIEUMUON", contentValues, "mapm = ?", new String[]{String.valueOf(mapm)});
+        if (check == -1) {
+            return false;
+        }else {
+            return true;
+        }
+
     }
 
 
