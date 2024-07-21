@@ -20,6 +20,14 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_quanlyphieumuon, container, false);
         RecyclerView recyclerQLPhieuMuon = view.findViewById(R.id.recyclerQLPhieuMuon);
         FloatingActionButton floatAdd = view.findViewById(R.id.floatAdd);
+
+        // layout
+        
+
+        // data
+
+        // adapter
+
         return view;
     }
 }
