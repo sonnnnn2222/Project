@@ -25,7 +25,7 @@ public class ThanhVienDao {
             cursor.moveToFirst();
             do {
                 list.add(new ThanhVien(cursor.getInt(0), cursor.getString(1), cursor.getString(2)));
-                
+
             }while (cursor.moveToNext());
         }
         return list;
