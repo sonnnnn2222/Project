@@ -8,10 +8,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.viethcn.shopbanhang.R;
+import com.viethcn.shopbanhang.adapter.PhieuMuonAdapter;
+import com.viethcn.shopbanhang.dao.PhieuMuonDAO;
+import com.viethcn.shopbanhang.model.PhieuMuon;
+
+import java.util.ArrayList;
 
 public class QuanLyPhieuMuonFragment extends Fragment {
     @Nullable
@@ -26,8 +32,15 @@ public class QuanLyPhieuMuonFragment extends Fragment {
 
         // data
 
-        // adapter
+        PhieuMuonDAO phieuMuonDAO =  new PhieuMuonDAO(getContext());
+        ArrayList<PhieuMuon> list = phieuMuonDAO.getDSPhieuMuon();
 
+
+        // adapter
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerQLPhieuMuon.setLayoutManager(linearLayoutManager);
+        PhieuMuonAdapter adapter =  new PhieuMuonAdapter(list, getContext());
+        recyclerQLPhieuMuon.setAdapter(adapter);
         return view;
     }
 }
