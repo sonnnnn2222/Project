@@ -22,7 +22,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         FloatingActionButton floatAdd = view.findViewById(R.id.floatAdd);
 
         // layout
-        
+
 
         // data
 
