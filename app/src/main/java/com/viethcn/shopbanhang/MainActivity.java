@@ -1,7 +1,9 @@
 package com.viethcn.shopbanhang;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -65,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        // hiển thị chức năng cho adim
+        SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
+        String loai = sharedPreferences.getString("loai", "");
+        if (loai.equals("thuthu")) {
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.mDoanhThu).setVisible(false);
+            menu.findItem(R.id.mTop10).setVisible(false);
+        }
 
 
     }
