@@ -40,7 +40,28 @@ public class SachDAO {
         values.put("giathue", tien);
         values.put("maloai", maloai);
         long check = db.insert("SACH", null, values);
-        return true;
+        return check != -1;
     }
 
+    public boolean updateSach(int masach, String tensach, int giathue, int maloai){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tensach", tensach);
+        values.put("giathue", giathue);
+        values.put("maloai", maloai);
+        long check = db.update("SACH", values, "masach = ?", new String[]{String.valueOf(masach)});
+        return check != -1;
+    }
+
+    // -1: ko được xoá vì sách có trong phiếu mượn
+    // 0: xoá thất bại
+    // 1: xoá thành công
+    public int deleteSach(int masach){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT masach FROM PHIEUMUON WHERE masach =?", new String[]{String.valueOf(masach)});
+        // nếu cursor trả về giá trị khác 0 thì trả về -1
+        if (cursor.getCount() != 0) return -1;
+        long check = db.delete("SACH", "masach = ?", new String[]{String.valueOf(masach)});
+        return check != -1? 1:0;
+    }
 }
