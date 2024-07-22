@@ -30,8 +30,8 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_quanlyphieumuon, container, false);
         RecyclerView recyclerQLPhieuMuon = view.findViewById(R.id.recyclerQLPhieuMuon);
         FloatingActionButton floatAdd = view.findViewById(R.id.floatAdd);
-        // data
 
+        // data
         PhieuMuonDAO phieuMuonDAO =  new PhieuMuonDAO(getContext());
         ArrayList<PhieuMuon> list = phieuMuonDAO.getDSPhieuMuon();
 
@@ -57,6 +57,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_themphieumuon, null);
+
         Spinner spnTV = view.findViewById(R.id.spnTV);
         Spinner spnSach = view.findViewById(R.id.spnSach);
         EditText edtTien = view.findViewById(R.id.edtTien);
