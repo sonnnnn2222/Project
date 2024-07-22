@@ -16,7 +16,6 @@ public class Sach {
     public int getMasach() {
         return masach;
     }
-
     public void setMasach(int masach) {
         this.masach = masach;
     }
@@ -24,7 +23,6 @@ public class Sach {
     public String getTenSach() {
         return tenSach;
     }
-
     public void setTenSach(String tenSach) {
         this.tenSach = tenSach;
     }
@@ -32,7 +30,6 @@ public class Sach {
     public int getGiathue() {
         return giathue;
     }
-
     public void setGiathue(int giathue) {
         this.giathue = giathue;
     }
@@ -40,7 +37,6 @@ public class Sach {
     public int getMaloai() {
         return maloai;
     }
-
     public void setMaloai(int maloai) {
         this.maloai = maloai;
     }
