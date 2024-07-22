@@ -41,24 +41,23 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHold holder, int position) {
-        holder.txtMaPhieuMuon.setText("Mã PM:" + list.get(position).getMapm());
-        holder.txtMaTV.setText("Mã TV:" + list.get(position).getMatv());
-        holder.txtTenTV.setText("Tên TV:" + list.get(position).getTentv());
-        holder.txtTenDangNhap.setText("Tên Đăng nhập:" + list.get(position).getTendangnhap());
-        holder.txtHoTenDangNhap.setText("Họ Tên Đăng nhập:" + list.get(position).getHoTenDangNhap());
-        holder.txtMaSach.setText("Mã Sách:" + list.get(position).getMasach());
-        holder.txtTenSach.setText("Tên sách:" + list.get(position).getTensach());
-        holder.txtNgay.setText("Ngày mươn:" + list.get(position).getNgay());
+        holder.txtMaPhieuMuon.setText("Mã PM: " + list.get(position).getMapm());
+        holder.txtMaTV.setText("Mã TV: " + list.get(position).getMatv());
+        holder.txtTenTV.setText("Tên TV: " + list.get(position).getTentv());
+        holder.txtTenDangNhap.setText("Tên Đăng nhập: " + list.get(position).getTendangnhap());
+        holder.txtMaSach.setText("Mã Sách: " + list.get(position).getMasach());
+        holder.txtTenSach.setText("Tên sách: " + list.get(position).getTensach());
+        holder.txtNgay.setText("Ngày mươn: " + list.get(position).getNgay());
         String trangThai;
         if (list.get(position).getTrasach() == 1) {
-            trangThai = "Đã trả sách";
+            trangThai = "Đã trả sách: ";
             holder.btnTraSach.setVisibility(View.GONE);
         }else {
-            trangThai = "Chưa trả sách";
+            trangThai = "Chưa trả sách: ";
             holder.btnTraSach.setVisibility(View.VISIBLE);
         }
-        holder.txtTrangThai.setText("Trạng thái:" + trangThai);
-        holder.txtTienThue.setText("Mã PM:" + list.get(position).getTienthue());
+        holder.txtTrangThai.setText("Trạng thái: " + trangThai);
+        holder.txtTienThue.setText("Mã PM: " + list.get(position).getTienthue());
 
         holder.btnTraSach.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +91,6 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
             txtMaTV = itemView.findViewById(R.id.txtmaTV);
             txtTenTV = itemView.findViewById(R.id.txtTenTV);
             txtTenDangNhap = itemView.findViewById(R.id.txtTenDangnhap);
-            txtHoTenDangNhap = itemView.findViewById(R.id.txtHoTenDangnhap);
             txtMaSach = itemView.findViewById(R.id.txtMaSach);
             txtTenSach = itemView.findViewById(R.id.txtTenSach);
             txtNgay = itemView.findViewById(R.id.txtNgay);
