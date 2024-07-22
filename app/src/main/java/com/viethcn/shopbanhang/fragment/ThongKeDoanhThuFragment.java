@@ -1,6 +1,6 @@
 package com.viethcn.shopbanhang.fragment;
 
-import android.annotation.SuppressLint;
+
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,8 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.viethcn.shopbanhang.R;
+import com.viethcn.shopbanhang.dao.ThongKeDAO;
 
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -37,13 +37,11 @@ public class ThongKeDoanhThuFragment extends Fragment {
         edtStart.setOnClickListener( v ->{
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     getContext(),
-                    new DatePickerDialog.OnDateSetListener() {
-                        @Override
-                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                            String ngay = dayOfMonth < 10? ("0" + dayOfMonth) : String.valueOf(dayOfMonth);
-                            String thang = month < 10? ("0" + month) : String.valueOf(month);
-                            edtStart.setText(year + "/" + month + "/" + dayOfMonth);
-                        }
+                    (view1, year, month, dayOfMonth) -> {
+                        String ngay = dayOfMonth < 10? ("0" + dayOfMonth) : String.valueOf(dayOfMonth);
+                        String thang = month < 10? ("0" + month) : String.valueOf(month);
+
+                        edtStart.setText(ngay + "/" + thang + "/" + year);
                     },
                     calendar.get(Calendar.YEAR),
                     calendar.get(Calendar.MONTH),
@@ -51,6 +49,35 @@ public class ThongKeDoanhThuFragment extends Fragment {
             );
             datePickerDialog.show();
         });
+
+        edtEnd.setOnClickListener( v ->{
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    getContext(), (view1, year, month, dayOfMonth) -> {
+                        String ngay = dayOfMonth < 10? ("0" + dayOfMonth) : String.valueOf(dayOfMonth);
+                        String thang = month < 10? ("0" + month) : String.valueOf(month);
+
+                        edtEnd.setText(ngay + "/" + thang + "/" + year);
+                    },
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH)
+            );
+            datePickerDialog.show();
+        });
+
+        btnThongKe.setOnClickListener(v -> {
+            ThongKeDAO thongKeDAO = new ThongKeDAO(getContext());
+            // lấy ngày bắt đầu và ngày kết thúc
+            String start = edtStart.getText().toString();
+            String end = edtEnd.getText().toString();
+
+            // biến cost là tổng doanh thu
+            // được gọi từ hàm ThongKeDAO, truyền vào ngày bắt đầu và ngày kết thúc
+            int cost = thongKeDAO.getDoanhThu(start, end);
+
+            txtDoanhThu.setText(cost + " VND");
+        });
+
         return view;
     }
 

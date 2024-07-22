@@ -8,7 +8,6 @@
         <menu>
             <item android:id="@+id/mTop10" android:title="Top 10 sách mượn nhiều nhất" android:icon="@drawable/top10"/>
             <item android:id="@+id/mDoanhThu" android:title="Doanh thu" android:icon="@drawable/money"/>
-
         </menu>
     </item>
 

@@ -24,6 +24,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.viethcn.shopbanhang.dao.SachDAO;
 import com.viethcn.shopbanhang.fragment.QuanLyLoaiSachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
+import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new QuanLyPhieuMuonFragment();
                 }else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
                     fragment = new QuanLyLoaiSachFragment();
+                }else if (menuItem.getItemId() == R.id.mDoanhThu) {
+                    fragment = new ThongKeDoanhThuFragment();
                 }
 
 
