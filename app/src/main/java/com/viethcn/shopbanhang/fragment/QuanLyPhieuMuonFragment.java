@@ -67,7 +67,6 @@ public class QuanLyPhieuMuonFragment extends Fragment {
 
         Spinner spnTV = view.findViewById(R.id.spnTV);
         Spinner spnSach = view.findViewById(R.id.spnSach);
-        EditText edtTien = view.findViewById(R.id.edtTien);
         getDataThanhVien(spnTV);
         getDataSach(spnSach);
         builder.setView(view);
@@ -85,7 +84,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
                 HashMap<String, Object> hsSach = (HashMap<String, Object>) spnSach.getSelectedItem();
                 int masach = (int) hsSach.get("masach");
 
-                int tien = Integer.parseInt(edtTien.getText().toString()) ;
+                int tien = (int) hsSach.get("giathue");
 
 
                 themPhieuMuon(matv, masach, tien);
@@ -108,8 +107,6 @@ public class QuanLyPhieuMuonFragment extends Fragment {
     private void loadData() {
         phieuMuonDAO =  new PhieuMuonDAO(getContext());
         list = phieuMuonDAO.getDSPhieuMuon();
-
-
         // adapter
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerQLPhieuMuon.setLayoutManager(linearLayoutManager);
@@ -130,17 +127,12 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         PhieuMuon phieuMuon = new PhieuMuon(matv, tendangnhap, masach, ngay, 0, tien);
         boolean check = phieuMuonDAO.ThemPhieuMuon(phieuMuon);
         if (check == true) {
-
-            Toast.makeText(getContext(), "Thêm phiếu mượn thành công", Toast.LENGTH_SHORT).show();
             loadData();
+            Toast.makeText(getContext(), "Thêm phiếu mượn thành công", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(getContext(), "Thêm phiếu mượn thất bại", Toast.LENGTH_SHORT).show();
 
         }
-
-
-
-
 
     }
 
@@ -174,6 +166,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
             HashMap<String, Object> hs = new HashMap<>();
             hs.put("masach", sach.getMasach());
             hs.put("tensach", sach.getTenSach());
+            hs.put("giathue", sach.getGiathue());
             listHM.add(hs);
         }
 
