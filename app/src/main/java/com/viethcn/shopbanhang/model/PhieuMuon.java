@@ -28,6 +28,15 @@ public class PhieuMuon {
         this.tensach = tensach;
     }
 
+    public PhieuMuon(int matv, String tendangnhap, int masach, String ngay, int trasach, int tienthue) {
+        this.matv = matv;
+        this.tendangnhap = tendangnhap;
+        this.masach = masach;
+        this.ngay = ngay;
+        this.trasach = trasach;
+        this.tienthue = tienthue;
+    }
+
     public int getMapm() {
         return mapm;
     }
