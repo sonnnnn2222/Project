@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new QuanLySachFragment();
                 }else if (menuItem.getItemId() == R.id.mDoiMatKhau) {
                     showDialogDoiMatKhau();
+                }else if (menuItem.getItemId() == R.id.mDangXuat) {
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
                 }
 
 
@@ -93,14 +96,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // hiển thị chức năng cho adim
-        SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
-        String loai = sharedPreferences.getString("loai", "");
-        if (loai.equals("thuthu")) {
-            Menu menu = navigationView.getMenu();
-            menu.findItem(R.id.mDoanhThu).setVisible(false);
-            menu.findItem(R.id.mTop10).setVisible(false);
-        }
-
 
     }
 
