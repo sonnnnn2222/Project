@@ -11,7 +11,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // NGUOIDUNG => tendangnhap text PRIMARY KEY, matkhau text, hoten text, loai text
-        String qNguoiDung = "CREATE TABLE NGUOIDUNG (tendangnhap TEXT PRIMARY KEY, matkhau TEXT, hoten TEXT, loai text)";
+        String qNguoiDung = "CREATE TABLE NGUOIDUNG (tendangnhap TEXT PRIMARY KEY, matkhau TEXT, hoten TEXT)";
         db.execSQL(qNguoiDung);
 
         // THANHVIEN => matv integer PRIMARY KEY autoincrement, hoten text, namsinh text
@@ -35,7 +35,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(dbPhieuMuon);
 
         // chỉ có 1 tài khoản có Loại:THUTHU thôi nhe
-        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet', 'thuthu'), ('giabao', '123456', 'Trần Gia Bảo', ''), ('xuanson', '12345', 'Bùi Xuân Sơn', '')";
+        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet'), ('giabao', '123456', 'Trần Gia Bảo'), ('xuanson', '12345', 'Bùi Xuân Sơn')";
         db.execSQL(dNguoiDung);
 
         db.execSQL("INSERT INTO LOAISACH VALUES (1, 'Thiếu nhi'),(2,'Tình cảm'),(3, 'Giáo khoa')");

@@ -28,7 +28,6 @@ public class NguoiDungDao {
            cursor.moveToFirst();
            SharedPreferences.Editor editor = sharedPreferences.edit();
            editor.putString("tendangnhap", cursor.getString(0));
-           editor.putString("loai", cursor.getString(3));
            editor.commit();
            return true;
        }else {
