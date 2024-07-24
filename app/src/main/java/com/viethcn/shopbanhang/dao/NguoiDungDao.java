@@ -60,4 +60,23 @@ public class NguoiDungDao {
             return "";
         }
     }
+
+
+    public boolean capNhatMatKhau(String userName, String oldPass, String newPass) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from NGUOIDUNG where tendangnhap = ? and matkhau = ? ", new String[]{userName, oldPass});
+        if (cursor.getCount() > 0 ) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("matkhau", newPass);
+            long check = sqLiteDatabase.update("NGUOIDUNG", contentValues, "tendangnhap = ?", new String[]{userName});
+
+            if (check == -1) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+        return false;
+    }
 }
