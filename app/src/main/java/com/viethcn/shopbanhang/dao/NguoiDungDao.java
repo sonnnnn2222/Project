@@ -61,7 +61,7 @@ public class NguoiDungDao {
     }
 
 
-    public boolean capNhatMatKhau(String userName, String oldPass, String newPass) {
+    public int capNhatMatKhau(String userName, String oldPass, String newPass) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from NGUOIDUNG where tendangnhap = ? and matkhau = ? ", new String[]{userName, oldPass});
         if (cursor.getCount() > 0 ) {
@@ -70,12 +70,12 @@ public class NguoiDungDao {
             long check = sqLiteDatabase.update("NGUOIDUNG", contentValues, "tendangnhap = ?", new String[]{userName});
 
             if (check == -1) {
-                return false;
+                return -1;
             } else {
-                return true;
+                return 1;
             }
 
         }
-        return false;
+        return 0;
     }
 }

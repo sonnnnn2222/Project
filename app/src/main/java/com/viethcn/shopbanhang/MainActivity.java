@@ -100,7 +100,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDialogDoiMatKhau() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setNegativeButton("Sửa mật khẩu", null)
+                .setPositiveButton("Huỷ", null);
+
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_doimaukhau, null);
         EditText edtPassCu = view.findViewById(R.id.edtPassCu);
@@ -109,43 +112,47 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setView(view);
 
-        builder.setPositiveButton("Huỷ", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-            }
-        });
-
-        builder.setNegativeButton("Sửa mật khẩu", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String PassCu =edtPassCu.getText().toString();
-                String PassMoi = edtPassMoi.getText().toString();
-                String NhapLaiPassMoi = edtNhapLaiPassMoi.getText().toString();
-                if (PassMoi.equals(NhapLaiPassMoi)) {
-                    SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
-                    String tendangnhap =sharedPreferences.getString("tendangnhap", "");
-                    // cap nhat
-                    NguoiDungDao nguoiDungDao = new NguoiDungDao(MainActivity.this);
-                    boolean check = nguoiDungDao.capNhatMatKhau(tendangnhap, PassCu, PassMoi);
-                    if (check) {
-                        Toast.makeText(MainActivity.this, "Cập nhật mật khẩu thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, Login.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                    }else {
-                        Toast.makeText(MainActivity.this, "Cập nhật mật khẩu thất bại", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                }else {
-                    Toast.makeText(MainActivity.this, "Nhập mật khẩu không trùng", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+
+
+        alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String PassCu =edtPassCu.getText().toString();
+                String PassMoi = edtPassMoi.getText().toString();
+                String NhapLaiPassMoi = edtNhapLaiPassMoi.getText().toString();
+
+                if (PassCu.equals("") || PassMoi.equals("") || NhapLaiPassMoi.equals("")) {
+                    Toast.makeText(MainActivity.this, "Nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (PassMoi.equals(NhapLaiPassMoi)) {
+                        SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
+                        String tendangnhap =sharedPreferences.getString("tendangnhap", "");
+                        // cap nhat
+                        NguoiDungDao nguoiDungDao = new NguoiDungDao(MainActivity.this);
+                        int check = nguoiDungDao.capNhatMatKhau(tendangnhap, PassCu, PassMoi);
+                        if (check == 1) {
+                            Toast.makeText(MainActivity.this, "Cập nhật mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, Login.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }else if (check == 0) {
+                            Toast.makeText(MainActivity.this, "Mật khẩu cũ không đúng", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(MainActivity.this, "Cập nhật mật khẩu thất bại", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }else {
+                        Toast.makeText(MainActivity.this, "Nhập mật khẩu không trùng", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
 
 
 
