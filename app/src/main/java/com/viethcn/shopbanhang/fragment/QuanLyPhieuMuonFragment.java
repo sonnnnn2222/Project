@@ -127,8 +127,8 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         PhieuMuon phieuMuon = new PhieuMuon(matv, tendangnhap, masach, ngay, 0, tien);
         boolean check = phieuMuonDAO.ThemPhieuMuon(phieuMuon);
         if (check == true) {
-            loadData();
             Toast.makeText(getContext(), "Thêm phiếu mượn thành công", Toast.LENGTH_SHORT).show();
+            loadData();
         }else {
             Toast.makeText(getContext(), "Thêm phiếu mượn thất bại", Toast.LENGTH_SHORT).show();
 

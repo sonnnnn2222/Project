@@ -52,6 +52,7 @@ public class PhieuMuonDAO {
         //(mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv), tendangnhap TEXT references NGUOIDUNG(tendangnhap), masach integer references SACH(masach), ngay text, trasach integer, tienthue integer
         contentValues.put("matv", phieuMuon.getMatv());
         contentValues.put("tendangnhap", phieuMuon.getTendangnhap());
+        contentValues.put("masach", phieuMuon.getMasach());
         contentValues.put("ngay", phieuMuon.getNgay());
         contentValues.put("trasach", phieuMuon.getTrasach());
         contentValues.put("tienthue", phieuMuon.getTienthue());
