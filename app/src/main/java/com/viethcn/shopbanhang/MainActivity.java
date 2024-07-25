@@ -35,6 +35,7 @@ import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
 import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyThanhVienFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
+import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 }else if (menuItem.getItemId() == R.id.mDangXuat) {
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
+                }else if (menuItem.getItemId() == R.id.mTop10) {
+                    fragment =  new ThongKeTop10Fragment();
                 }
 
 
