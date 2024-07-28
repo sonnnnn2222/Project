@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String dbPhieuMuon = "CREATE TABLE PHIEUMUON(mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv), tendangnhap TEXT references NGUOIDUNG(tendangnhap), masach integer references SACH(masach), ngay text, trasach integer, tienthue integer)";
         db.execSQL(dbPhieuMuon);
 
-        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoang Cong Nhut Viet'), ('giabao', '12345', 'Trần Gia Bảo'), ('xuanson', '12345', 'Bùi Xuân Sơn'), ('ductin', '12345', 'Lại Đức Tín'), ('phuquy', '12345', 'Bùi Phú Quý')";
+        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoàng Công Nhựt Việt'), ('giabao', '12345', 'Trần Gia Bảo'), ('xuanson', '12345', 'Bùi Xuân Sơn'), ('ductin', '12345', 'Lại Đức Tín'), ('phuquy', '12345', 'Bùi Phú Quý')";
         db.execSQL(dNguoiDung);
 
         db.execSQL("INSERT INTO LOAISACH VALUES (1, 'Thiếu nhi'),(2,'Tình cảm'),(3, 'Giáo khoa')");

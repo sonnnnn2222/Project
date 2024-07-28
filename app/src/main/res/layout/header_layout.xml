@@ -13,6 +13,7 @@
         android:src="@drawable/user"/>
     
     <TextView
+
         android:id="@+id/txtHeader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,6 +21,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#fff"
-        android:text="Xin chào, Hoàng Công Nhựt Việt"/>
+       />
 
 </LinearLayout>
