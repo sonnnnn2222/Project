@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout frameLayout = findViewById(R.id.frameLayout);
         NavigationView navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
+        View headerLayout = navigationView.getHeaderView(0);
+        TextView txtName = headerLayout.findViewById(R.id.txtHeader);
+
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -98,7 +102,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // hiển thị chức năng cho adim
+        // hiển thị chức năng
+        SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
+        String hoten = sharedPreferences.getString("hoten", "");
+        txtName.setText( "Xin Chào: " + hoten);
 
     }
 
