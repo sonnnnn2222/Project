@@ -11,7 +11,7 @@
 
 
     <LinearLayout
-        android:background="#59B1F6"
+        android:background="#92C5ED"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -27,11 +27,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Values"
+                android:textSize="16sp"
                 android:layout_marginRight="20dp"
                 />
             <TextView
                 android:id="@+id/txtmaTV"
                 android:layout_width="match_parent"
+                android:textSize="16sp"
                 android:layout_height="wrap_content"
                 android:text="Values"
                 />
@@ -45,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Values"
+                android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 />
@@ -60,11 +63,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Values"
+                android:textSize="16sp"
                 android:layout_marginRight="20dp"
                 />
 
             <TextView
                 android:id="@+id/txtMaSach"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Values"
@@ -78,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Values"
+                android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 />
@@ -86,6 +92,7 @@
                 android:id="@+id/txtNgay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:text="Values"
                 />
 
@@ -102,6 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Values"
+        android:textSize="16sp"
         android:layout_marginRight="20dp"
         />
 
@@ -109,6 +117,7 @@
         android:id="@+id/txtTienThue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         android:text="Values"
 
         />
@@ -121,6 +130,7 @@
             android:id="@+id/btnTraSach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#9D6FEF"
             android:text="Trả sách"/>
     </LinearLayout>
 
