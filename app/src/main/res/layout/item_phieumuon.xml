@@ -1,140 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
-    app:cardCornerRadius="10dp">
-
-
-
-
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
 
     <LinearLayout
-        android:background="#92C5ED"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#E3F2FD"
         android:orientation="vertical"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp">
+        android:padding="16dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
             <TextView
                 android:id="@+id/txtMaphieumuon"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Values"
+                android:layout_weight="1"
+                android:text="Mã phiếu mượn:"
                 android:textSize="16sp"
-                android:layout_marginRight="20dp"
-                />
+                android:textColor="#000"
+                android:layout_marginEnd="8dp" />
+
             <TextView
                 android:id="@+id/txtmaTV"
-                android:layout_width="match_parent"
-                android:textSize="16sp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Values"
-                />
+                android:layout_weight="1"
+                android:text="Mã TV:"
+                android:textSize="16sp"
+                android:textColor="#000" />
         </LinearLayout>
 
-
-
-
-            <TextView
-                android:id="@+id/txtTenTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Values"
-                android:textSize="16sp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                />
-
+        <TextView
+            android:id="@+id/txtTenTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên TV:"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_marginBottom="8dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
             <TextView
                 android:id="@+id/txtTenDangnhap"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Values"
+                android:text="Tên đăng nhập:"
                 android:textSize="16sp"
-                android:layout_marginRight="20dp"
-                />
+                android:textColor="#000"
+                android:layout_marginRight="30dp"/>
 
             <TextView
                 android:id="@+id/txtMaSach"
-                android:textSize="16sp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Values"
-                />
-
+                android:text="Mã sách:"
+                android:textSize="16sp"
+                android:textColor="#000" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtTenSach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên sách:"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/txtNgay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày mượn:"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
             <TextView
-                android:id="@+id/txtTenSach"
-                android:layout_width="match_parent"
+                android:id="@+id/txtTrangThai"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Values"
+                android:text="Trạng thái:"
                 android:textSize="16sp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                />
+                android:textColor="#000"
+               android:layout_marginRight="30dp" />
 
             <TextView
-                android:id="@+id/txtNgay"
-                android:layout_width="match_parent"
+                android:id="@+id/txtTienThue"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Tiền thuê:"
                 android:textSize="16sp"
-                android:text="Values"
-                />
-
-
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp">
-    <TextView
-        android:id="@+id/txtTrangThai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Values"
-        android:textSize="16sp"
-        android:layout_marginRight="20dp"
-        />
-
-    <TextView
-        android:id="@+id/txtTienThue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="Values"
-
-        />
-
-</LinearLayout>
-
-
+                android:textColor="#000" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnTraSach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#9D6FEF"
-            android:text="Trả sách"/>
+            android:text="Trả sách"
+            android:textColor="#FFF" />
     </LinearLayout>
-
-
-
-
 </androidx.cardview.widget.CardView>
