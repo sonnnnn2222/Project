@@ -50,10 +50,10 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
         holder.txtNgay.setText("Ngày mươn: " + list.get(position).getNgay());
         String trangThai;
         if (list.get(position).getTrasach() == 1) {
-            trangThai = "Đã trả sách: ";
+            trangThai = "Đã trả sách";
             holder.btnTraSach.setVisibility(View.GONE);
         }else {
-            trangThai = "Chưa trả sách: ";
+            trangThai = "Chưa trả sách";
             holder.btnTraSach.setVisibility(View.VISIBLE);
         }
         holder.txtTrangThai.setText("Trạng thái: " + trangThai);

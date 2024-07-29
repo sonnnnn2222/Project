@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         View headerLayout = navigationView.getHeaderView(0);
         TextView txtName = headerLayout.findViewById(R.id.txtHeader);
+        setTitle("Quản lý phiếu mượn");
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
