@@ -28,7 +28,7 @@ public class NguoiDungDao {
            cursor.moveToFirst();
            SharedPreferences.Editor editor = sharedPreferences.edit();
            editor.putString("tendangnhap", cursor.getString(0));
-           editor.putString("loai", cursor.getString(3));
+           editor.putString("hoten", cursor.getString(2));
            editor.commit();
            return true;
        }else {
@@ -59,5 +59,24 @@ public class NguoiDungDao {
         }else {
             return "";
         }
+    }
+
+
+    public int capNhatMatKhau(String userName, String oldPass, String newPass) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from NGUOIDUNG where tendangnhap = ? and matkhau = ? ", new String[]{userName, oldPass});
+        if (cursor.getCount() > 0 ) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("matkhau", newPass);
+            long check = sqLiteDatabase.update("NGUOIDUNG", contentValues, "tendangnhap = ?", new String[]{userName});
+
+            if (check == -1) {
+                return -1;
+            } else {
+                return 1;
+            }
+
+        }
+        return 0;
     }
 }
