@@ -84,10 +84,6 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder>{
             Sach s1 = list.get(holder.getAdapterPosition());
             int id = s1.getMasach();
             int check = dao.deleteSach(id);
-
-            // -1: ko được xoá vì sách có trong phiếu mượn
-            // 0: xoá thất bại
-            // 1: xoá thành công
             switch (check){
                 case 1:
                     Toast.makeText(c, "Xóa thành công", Toast.LENGTH_SHORT).show();
