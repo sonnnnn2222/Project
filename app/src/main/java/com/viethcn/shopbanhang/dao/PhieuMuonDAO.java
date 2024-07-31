@@ -49,6 +49,7 @@ public class PhieuMuonDAO {
     public boolean ThemPhieuMuon(PhieuMuon phieuMuon) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         //(mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv), tendangnhap TEXT references NGUOIDUNG(tendangnhap), masach integer references SACH(masach), ngay text, trasach integer, tienthue integer
         contentValues.put("matv", phieuMuon.getMatv());
         contentValues.put("tendangnhap", phieuMuon.getTendangnhap());

@@ -122,7 +122,7 @@ public class QuanLySachFragment extends Fragment {
         rcSach.setLayoutManager(layoutManager);
 
         // SachAdapter cần context và list
-        SachAdapter adapter = new SachAdapter(getContext(), list, getLoaiSach());
+        SachAdapter adapter = new SachAdapter(getContext(), list, getLoaiSach(), dao);
         rcSach.setAdapter(adapter);
     }
 }
