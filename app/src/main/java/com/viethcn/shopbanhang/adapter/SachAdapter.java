@@ -11,12 +11,15 @@ import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.viethcn.shopbanhang.R;
+import com.viethcn.shopbanhang.dao.SachDAO;
 import com.viethcn.shopbanhang.model.Sach;
+import com.viethcn.shopbanhang.model.ThanhVien;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,11 +29,13 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder>{
     private final Context c;
     private final ArrayList<Sach> list;
     private final ArrayList<HashMap<String, Object>> map;
+    private final SachDAO dao;
 
-    public SachAdapter(Context c, ArrayList<Sach> list, ArrayList<HashMap<String, Object>> map) {
+    public SachAdapter(Context c, ArrayList<Sach> list, ArrayList<HashMap<String, Object>> map, SachDAO dao) {
         this.c = c;
         this.list = list;
         this.map = map;
+        this.dao = dao;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtMa, txtTen, txtGia, txtMaloai, txtTenloai;
@@ -46,7 +51,6 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder>{
 
             ivEdit = itemView.findViewById(R.id.ivEdit);
             ivDel = itemView.findViewById(R.id.ivDel);
-
         }
     }
 
@@ -75,15 +79,17 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder>{
         }
 
 
-        holder.ivEdit.setOnClickListener(v -> showDialogUp(list.get(holder.getAdapterPosition())));
-        holder.ivDel.setOnClickListener(v -> showDialogDel(list.get(holder.getAdapterPosition())));
+        holder.ivEdit.setOnClickListener(v -> showDialogUpDate(list.get(holder.getAdapterPosition())));
+        holder.ivDel.setOnClickListener(v -> {
+            Sach s1 = list.get(holder.getAdapterPosition());
+            int id = s1.getMasach();
+            int check = dao.deleteSach(id);
+        });
 
     }
 
-    private void showDialogDel(Sach sach) {
-    }
 
-    private void showDialogUp(Sach s){
+    private void showDialogUpDate(Sach s){
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
         LayoutInflater inf = ((Activity)c).getLayoutInflater();
         View view = inf.inflate(R.layout.dialog_updatebook, null);
@@ -100,18 +106,33 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder>{
 
         edtTen.setText(s.getTenSach());
         edtTien.setText(String.valueOf(s.getGiathue()));
-
         spnLoaiSach.setAdapter(adapter);
 
+        // Sach int masach, String tenSach, int giathue, int maloai, String tenloai) {
         builder.setNegativeButton("Sửa", (dialog, which) -> {
+            String ten = edtTen.getText().toString();
+            int tien = Integer.parseInt(edtTien.getText().toString());
+            int maloai = Integer.parseInt(map.get(spnLoaiSach.getSelectedItemPosition()).get("maloai").toString());
+            int id = s.getMasach();
 
+            // int masach, String tensach, int giathue, int maloai
+            boolean check = dao.updateSach(id, ten, tien, Integer.parseInt(String.valueOf(maloai)));
+
+            if (check){
+                Toast.makeText(c, "Cập nhập thành công", Toast.LENGTH_SHORT).show();
+                reloadDatalist();
+            }
         });
         builder.setPositiveButton("Hủy", (dialog, which) -> {});
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
+    private void reloadDatalist(){
+        list.clear();
+        list.addAll(dao.getDSDauSach());
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return list.size();
