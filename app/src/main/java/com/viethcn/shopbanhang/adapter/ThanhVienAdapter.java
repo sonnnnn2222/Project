@@ -75,7 +75,6 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.View
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
         LayoutInflater inf = ((Activity)c).getLayoutInflater();
         View view = inf.inflate(R.layout.dialog_updatethanhvien, null);
-
         builder.setView(view);
 
         TextView txtMa = view.findViewById(R.id.txtMaTV);
