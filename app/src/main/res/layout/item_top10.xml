@@ -1,39 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:background="?attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="16dp"
         android:background="#58E1D4">
 
         <TextView
             android:id="@+id/txtMaSach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="masach"/>
+            android:textSize="20sp"
+            android:text="Mã Sách"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/txtTenSach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="ten sach"/>
+            android:textSize="20sp"
+            android:text="Tên Sách"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/txtSoLuong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="soluong"/>
-
-
+            android:textSize="20sp"
+            android:text="Số Lượng"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-medium"/>
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

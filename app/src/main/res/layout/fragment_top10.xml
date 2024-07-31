@@ -4,16 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TOP 10 SÁCH MƯỢN NHIỀU NHẤT"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:textColor="#ff00"/>
-
+    
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerTop10"
         android:layout_width="match_parent"
