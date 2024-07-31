@@ -3,6 +3,7 @@ package com.viethcn.shopbanhang;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -24,7 +25,14 @@ public class WelcomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_welcome);
         ImageView bookCover = findViewById(R.id.bookCover);
-        Glide.with(this).load(R.drawable.schoolbook).into(bookCover);
+        Glide.with(this).load(R.drawable.gifreading).into(bookCover);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(WelcomeActivity.this, Login.class));
+            }
+        },5000);
 
 
 
