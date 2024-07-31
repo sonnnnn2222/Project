@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#986F6F"
+        android:background="#DAD294"
         android:gravity="center">
 
         <TextView
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mã TV: "
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:layout_marginBottom="8dp" />
 
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Họ tên: "
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:layout_marginBottom="8dp" />
 
@@ -38,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Năm sinh: "
-            android:textColor="@android:color/white"
             android:textSize="18sp"
+            android:textColor="#000"
             android:layout_marginBottom="16dp" />
 
         <LinearLayout
@@ -48,22 +48,26 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <ImageView
+            <TextView
                 android:id="@+id/ivEdit"
-                android:layout_width="48dp"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20sp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_edit"
-                app:tint="@android:color/white" />
+                android:textColor="#2196F3"
+                android:text="@string/update"/>
 
-            <ImageView
+            <TextView
                 android:id="@+id/ivDel"
-                android:layout_width="48dp"
+                android:layout_width="0dp"
+                android:textSize="20sp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:src="@drawable/ic_delete"
-                app:tint="@android:color/white" />
+                android:text="@string/delete"
+                android:textColor="#F11C1C"
+                android:gravity="center" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
