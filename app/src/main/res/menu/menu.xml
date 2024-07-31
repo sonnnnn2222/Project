@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/mQuanLyPhieuMuon" android:title="Quản lý phiếu mượn" android:icon="@drawable/home"/>
-    <item android:id="@+id/mQuanLyLoaiSach" android:title="Quản lý loại sách" android:icon="@drawable/book"/>
+    <item android:id="@+id/mQuanLyLoaiSach" android:title="Quản lý loại sách" android:icon="@drawable/bookgif"/>
     <item android:id="@+id/mQuanLySach" android:title="Quản lý sách " android:icon="@drawable/bookmark"/>
     <item android:id="@+id/mQuanLyThanhVien" android:title="Quản lý thành viên " android:icon="@drawable/usermenu"/>
     <item android:title="Thống kê">
