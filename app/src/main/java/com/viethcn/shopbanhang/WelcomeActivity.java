@@ -27,5 +27,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Glide.with(this).load(R.drawable.schoolbook).into(bookCover);
 
 
+
+
     }
 }

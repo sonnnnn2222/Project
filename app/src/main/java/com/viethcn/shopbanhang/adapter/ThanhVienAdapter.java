@@ -117,8 +117,7 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtMa, txtHoten, txtNamsinh;
-        ImageView ivEditt, ivDelete;
+        TextView txtMa, txtHoten, txtNamsinh, ivEditt, ivDelete;
 
         public ViewHolder(View itemView) {
             super(itemView);

@@ -2,4 +2,6 @@
     <string name="app_name">ShopBanHang</string>
     <string name="forgot_password"><u>Forgot PassWord?</u></string>
     <string name="sing_up">Don\'t have account?<b>Sign up</b></string>
+    <string name="update"><u>Chỉnh sửa </u></string>
+    <string name="delete"><u>Xoá</u></string>
 </resources>
