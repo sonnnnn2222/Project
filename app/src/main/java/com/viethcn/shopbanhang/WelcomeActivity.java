@@ -25,7 +25,7 @@ public class WelcomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_welcome);
         ImageView bookCover = findViewById(R.id.bookCover);
-        Glide.with(this).load(R.drawable.gifreading).into(bookCover);
+        Glide.with(this).load(R.drawable.giphy).into(bookCover);
 
         new Handler().postDelayed(new Runnable() {
             @Override
