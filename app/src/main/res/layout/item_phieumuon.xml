@@ -29,25 +29,7 @@
                 android:textSize="16sp"
                 android:textColor="#000"
                 android:layout_marginEnd="8dp" />
-
-            <TextView
-                android:id="@+id/txtmaTV"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mã TV:"
-                android:textSize="16sp"
-                android:textColor="#000" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtTenTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tên TV:"
-            android:textSize="16sp"
-            android:textColor="#000"
-            android:layout_marginBottom="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
