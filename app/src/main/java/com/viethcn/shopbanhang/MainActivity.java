@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -96,6 +97,19 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
         String hoten = sharedPreferences.getString("hoten", "");
         txtName.setText("Xin Chào: " + hoten);
+        String loai = sharedPreferences.getString("loai", "");
+        if (!loai.equals("admin")) {
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.mDoanhThu).setVisible(false);
+            menu.findItem(R.id.mTop10).setVisible(false);
+            menu.findItem(R.id.mQuanLyThanhVien).setVisible(false);
+            menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
+        }
+
+
+
+        // hien thi chuc nang cho admin
+
     }
 
     public void showDialogDoiMatKhau() {
