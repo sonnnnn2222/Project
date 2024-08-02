@@ -28,6 +28,7 @@ public class NguoiDungDao {
            cursor.moveToFirst();
            SharedPreferences.Editor editor = sharedPreferences.edit();
            editor.putString("tendangnhap", cursor.getString(0));
+           editor.putString("matkhau", cursor.getString(1));
            editor.putString("hoten", cursor.getString(2));
            editor.putString("loai", cursor.getString(3));
            editor.commit();
