@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         View headerLayout = navigationView.getHeaderView(0);
         TextView txtName = headerLayout.findViewById(R.id.txtHeader);
-        setTitle("Quản lý phiếu mượn");
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.menu);
+        setTitle("Trang chủ");
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -91,13 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        // Display a default fragment when the app starts
-        if (savedInstanceState == null) {
-            navigationView.setCheckedItem(R.id.mQuanLyPhieuMuon); // Default selected menu item
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new QuanLyPhieuMuonFragment()).commit();
-            toolbar.setTitle("Quản Lý Phiếu Mượn");
-        }
 
         // Display the user name
         SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
