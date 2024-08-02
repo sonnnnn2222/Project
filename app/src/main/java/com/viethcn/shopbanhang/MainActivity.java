@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyThanhVienFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
+import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if (menuItem.getItemId() == R.id.mTop10) {
                     fragment = new ThongKeTop10Fragment();
+                } else if (menuItem.getItemId() == R.id.mThongTin) {
+                    fragment = new ThongTinFragment();
                 }
 
                 if (fragment != null) {
@@ -96,6 +100,19 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
         String hoten = sharedPreferences.getString("hoten", "");
         txtName.setText("Xin Chào: " + hoten);
+        String loai = sharedPreferences.getString("loai", "");
+        if (!loai.equals("admin")) {
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.mDoanhThu).setVisible(false);
+            menu.findItem(R.id.mTop10).setVisible(false);
+            menu.findItem(R.id.mQuanLyThanhVien).setVisible(false);
+            menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
+        }
+
+
+
+        // hien thi chuc nang cho admin
+
     }
 
     public void showDialogDoiMatKhau() {
