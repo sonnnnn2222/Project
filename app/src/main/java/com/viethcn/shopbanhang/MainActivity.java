@@ -1,6 +1,5 @@
 package com.viethcn.shopbanhang;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,7 +28,6 @@ import com.viethcn.shopbanhang.dao.NguoiDungDao;
 import com.viethcn.shopbanhang.fragment.QuanLyLoaiSachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
 import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
-import com.viethcn.shopbanhang.fragment.QuanLyThanhVienFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 import com.viethcn.shopbanhang.fragment.ThongTinFragment;
@@ -67,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new QuanLyLoaiSachFragment();
                 } else if (menuItem.getItemId() == R.id.mDoanhThu) {
                     fragment = new ThongKeDoanhThuFragment();
-                } else if (menuItem.getItemId() == R.id.mQuanLyThanhVien) {
-                    fragment = new QuanLyThanhVienFragment();
                 } else if (menuItem.getItemId() == R.id.mQuanLySach) {
                     fragment = new QuanLySachFragment();
                 } else if (menuItem.getItemId() == R.id.mDoiMatKhau) {

@@ -7,16 +7,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thành viên"
-        android:textSize="24dp"
-        android:textColor="#ff00"/>
-    <Spinner
-        android:id="@+id/spnTV"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Sách"
         android:textSize="24dp"
         android:textColor="#ff00"/>

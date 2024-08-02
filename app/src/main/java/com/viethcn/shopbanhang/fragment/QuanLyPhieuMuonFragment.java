@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,7 +23,6 @@ import com.viethcn.shopbanhang.R;
 import com.viethcn.shopbanhang.adapter.PhieuMuonAdapter;
 import com.viethcn.shopbanhang.dao.PhieuMuonDAO;
 import com.viethcn.shopbanhang.dao.SachDAO;
-import com.viethcn.shopbanhang.dao.ThanhVienDao;
 import com.viethcn.shopbanhang.model.PhieuMuon;
 import com.viethcn.shopbanhang.model.Sach;
 import com.viethcn.shopbanhang.model.ThanhVien;
@@ -65,9 +63,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_themphieumuon, null);
 
-        Spinner spnTV = view.findViewById(R.id.spnTV);
         Spinner spnSach = view.findViewById(R.id.spnSach);
-        getDataThanhVien(spnTV);
         getDataSach(spnSach);
         builder.setView(view);
 
@@ -76,8 +72,6 @@ public class QuanLyPhieuMuonFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 // lấy mã thành viên
 
-                HashMap<String, Object> hsTV = (HashMap<String, Object>) spnTV.getSelectedItem();
-                int matv =(int) hsTV.get("matv");
 
                 //Lấy mã sách
 
@@ -87,7 +81,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
                 int tien = (int) hsSach.get("giathue");
 
 
-                themPhieuMuon(matv, masach, tien);
+                themPhieuMuon(masach, tien);
             }
         });
 
@@ -115,7 +109,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
     }
 
 
-    private void themPhieuMuon(int matv, int masach, int tien) {
+    private void themPhieuMuon(int masach, int tien) {
         // Lấy tên đăng nhập
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("thongtin", Context.MODE_PRIVATE);
         String tendangnhap = sharedPreferences.getString("tendangnhap", "");
@@ -124,7 +118,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd//MM/yyyy", Locale.getDefault());
         String ngay = simpleDateFormat.format(currentTime);
 
-        PhieuMuon phieuMuon = new PhieuMuon(matv, tendangnhap, masach, ngay, 0, tien);
+        PhieuMuon phieuMuon = new PhieuMuon(tendangnhap, masach, ngay, 0, tien);
         boolean check = phieuMuonDAO.ThemPhieuMuon(phieuMuon);
         if (check == true) {
             Toast.makeText(getContext(), "Thêm phiếu mượn thành công", Toast.LENGTH_SHORT).show();
@@ -137,25 +131,7 @@ public class QuanLyPhieuMuonFragment extends Fragment {
     }
 
 
-    private void getDataThanhVien(Spinner spnTV) {
-        ThanhVienDao thanhVienDao = new ThanhVienDao(getContext());
-        ArrayList<ThanhVien> list = thanhVienDao.getDSThanhVien();
-        ArrayList<HashMap<String, Object>> listHM = new ArrayList<>();
-        for (ThanhVien tv : list) {
-            HashMap<String, Object> hs = new HashMap<>();
-            hs.put("matv", tv.getMatv());
-            hs.put("hoten", tv.getHoten());
-            listHM.add(hs);
-        }
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(
-                getContext(),
-                listHM,
-                android.R.layout.simple_list_item_1,
-                new String[]{"hoten"},
-                new int[]{android.R.id.text1});
-        spnTV.setAdapter(simpleAdapter);
-    }
 
 
     private void getDataSach(Spinner spnSach) {
