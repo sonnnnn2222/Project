@@ -11,7 +11,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // NGUOIDUNG => tendangnhap text PRIMARY KEY, matkhau text, hoten text, loai text
-        String qNguoiDung = "CREATE TABLE NGUOIDUNG (tendangnhap TEXT PRIMARY KEY, matkhau TEXT, hoten TEXT)";
+        String qNguoiDung = "CREATE TABLE NGUOIDUNG (tendangnhap TEXT PRIMARY KEY, matkhau TEXT, hoten TEXT, loai text)";
         db.execSQL(qNguoiDung);
 
         // THANHVIEN => matv integer PRIMARY KEY autoincrement, hoten text, namsinh text
@@ -34,7 +34,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String dbPhieuMuon = "CREATE TABLE PHIEUMUON(mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv), tendangnhap TEXT references NGUOIDUNG(tendangnhap), masach integer references SACH(masach), ngay text, trasach integer, tienthue integer)";
         db.execSQL(dbPhieuMuon);
 
-        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('nhutviet', '12345', 'Hoàng Công Nhựt Việt'), ('giabao', '12345', 'Trần Gia Bảo'), ('xuanson', '12345', 'Bùi Xuân Sơn'), ('ductin', '12345', 'Lại Đức Tín'), ('phuquy', '12345', 'Bùi Phú Quý')";
+        String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('admin', '12345', 'admin', 'admin'), ('nhutviet', '12345', 'Hoàng Công Nhựt Việt', ' '), ('giabao', '12345', 'Trần Gia Bảo', ' '), ('xuanson', '12345', 'Bùi Xuân Sơn', ' '), ('ductin', '12345', 'Lại Đức Tín',' '), ('phuquy', '12345', 'Bùi Phú Quý', ' ')";
         db.execSQL(dNguoiDung);
 
         db.execSQL("INSERT INTO LOAISACH VALUES (1, 'Thiếu nhi'),(2,'Tình cảm'),(3, 'Giáo khoa')");
