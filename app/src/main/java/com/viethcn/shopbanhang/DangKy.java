@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,25 +26,24 @@ public class DangKy extends AppCompatActivity {
         setContentView(R.layout.activity_dang_ky);
         EditText edtUser = findViewById(R.id.edtUseName);
         EditText edtPass = findViewById(R.id.edtPassWord);
-        EditText edtRePass = findViewById(R.id.edRePass);
-        EditText edtName = findViewById(R.id.edtFullName);
-        Button btnRegister = findViewById(R.id.btnDangKy);
-        Button btnBack = findViewById(R.id.btnBack);
+        EditText edtRePass = findViewById(R.id.edtRePass);
+        ImageView imageView = findViewById(R.id.imgRegister);
+        TextView txtBack = findViewById(R.id.txtBack);
         nguoiDungDao = new NguoiDungDao(this);
 
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String user = edtUser.getText().toString();
                 String pass = edtPass.getText().toString();
                 String rePass = edtRePass.getText().toString();
-                String name = edtName.getText().toString();
+
 
                 if (!pass.equals(rePass)) {
                     Toast.makeText(DangKy.this, "Không trùng mật khẩu", Toast.LENGTH_SHORT).show();
                 }else {
-                    boolean check = nguoiDungDao.Register(user, pass, name);
+                    boolean check = nguoiDungDao.Register(user, pass, rePass);
                     if (check) {
                         Toast.makeText(DangKy.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                         finish();
@@ -53,7 +54,7 @@ public class DangKy extends AppCompatActivity {
             }
         });
         
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        txtBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DangKy.this, Login.class));

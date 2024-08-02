@@ -1,7 +1,6 @@
 package com.viethcn.shopbanhang;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,41 +23,44 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        // anh xa
+
+        // Ánh xạ các thành phần giao diện
         EditText edtUser = findViewById(R.id.edtUseName);
         EditText edtPassWord = findViewById(R.id.edtPassWord);
-        Button btnLogin = findViewById(R.id.btnLogin);
+        ImageView imageView = findViewById(R.id.imgLogin);
         TextView txtForgot = findViewById(R.id.txtForgot);
-        TextView txtSingUp = findViewById(R.id.txtSignUp);
+        TextView txtSignUp = findViewById(R.id.txtSignUp);
         nguoiDungDao = new NguoiDungDao(this);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        // Xử lý sự kiện khi nhấn vào nút đăng nhập
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String user = edtUser.getText().toString();
                 String pass = edtPassWord.getText().toString();
 
+                // Kiểm tra thông tin đăng nhập
                 boolean check = nguoiDungDao.CheckLogin(user, pass);
 
                 if (check) {
                     Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Login.this, MainActivity.class));
-                }else {
+                } else {
                     Toast.makeText(Login.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        txtSingUp.setOnClickListener(new View.OnClickListener() {
+        // Xử lý sự kiện khi nhấn vào nút đăng ký
+        txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, DangKy.class));
             }
         });
 
-
+        // Xử lý sự kiện khi nhấn vào nút quên mật khẩu
         txtForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +69,8 @@ public class Login extends AppCompatActivity {
         });
     }
 
-
     private void showDialogForgot() {
+        // Tạo và hiển thị hộp thoại quên mật khẩu
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_forgot, null);
@@ -79,11 +81,12 @@ public class Login extends AppCompatActivity {
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        // anh xa
+        // Ánh xạ các thành phần trong hộp thoại
         EditText edtEmail = view.findViewById(R.id.edtEmail);
         Button btnSend = view.findViewById(R.id.btnSend);
         Button btnCancel = view.findViewById(R.id.btnCancel);
 
+        // Xử lý sự kiện khi nhấn vào nút hủy
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,13 +94,13 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        // Xử lý sự kiện khi nhấn vào nút gửi
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = edtEmail.getText().toString();
-                String matkau = nguoiDungDao.ForgotPassWord(email);
-                Toast.makeText(Login.this, matkau, Toast.LENGTH_SHORT).show();
-
+                String matkhau = nguoiDungDao.ForgotPassWord(email);
+                Toast.makeText(Login.this, matkhau, Toast.LENGTH_SHORT).show();
             }
         });
     }
