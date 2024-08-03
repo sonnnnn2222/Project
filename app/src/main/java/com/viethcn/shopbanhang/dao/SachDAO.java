@@ -9,6 +9,7 @@ import com.viethcn.shopbanhang.database.DbHelper;
 import com.viethcn.shopbanhang.model.Sach;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SachDAO {
     DbHelper dbHelper;
@@ -63,5 +64,23 @@ public class SachDAO {
         if (cursor.getCount() != 0) return -1;
         long check = db.delete("SACH", "masach = ?", new String[]{String.valueOf(masach)});
         return check != -1? 1:0;
+    }
+
+
+    public List<String> getBookName() {
+        List<String> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+
+        // SACH => masach int, tensach text, giathue int, maloai int references LOAISACH(maloai)
+        // LOAISACH => maloai int, tenloai text
+        Cursor cursor = sqLiteDatabase.rawQuery("select tensach from SACH", null);
+        if (cursor.getCount() != 0 ) {
+            cursor.moveToFirst();
+            do {
+                String tenSach = cursor.getString(0);
+                list.add(tenSach);
+            }while (cursor.moveToNext());
+        }
+        return list;
     }
 }

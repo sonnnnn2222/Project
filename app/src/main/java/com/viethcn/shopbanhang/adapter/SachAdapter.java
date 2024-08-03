@@ -1,5 +1,7 @@
 package com.viethcn.shopbanhang.adapter;
 
+import static androidx.core.content.ContextCompat.getString;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.viethcn.shopbanhang.MainActivity;
 import com.viethcn.shopbanhang.R;
 import com.viethcn.shopbanhang.dao.SachDAO;
 import com.viethcn.shopbanhang.model.Sach;
@@ -37,20 +40,23 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder>{
         this.map = map;
         this.dao = dao;
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtMa, txtTen, txtGia, txtMaloai, txtTenloai;
         ImageView ivEdit, ivDel;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            String check = ((MainActivity)c).getIntent().getStringExtra("check");
 
-            txtMa = itemView.findViewById(R.id.tvMa);
-            txtTen = itemView.findViewById(R.id.tvTen);
-            txtGia = itemView.findViewById(R.id.tvGia);
-            txtMaloai = itemView.findViewById(R.id.tvMaloai);
-            txtTenloai = itemView.findViewById(R.id.tvTenLoai);
+                txtMa = itemView.findViewById(R.id.tvMa);
+                txtTen = itemView.findViewById(R.id.tvTen);
+                txtGia = itemView.findViewById(R.id.tvGia);
+                txtMaloai = itemView.findViewById(R.id.tvMaloai);
+                txtTenloai = itemView.findViewById(R.id.tvTenLoai);
 
-            ivEdit = itemView.findViewById(R.id.ivEdit);
-            ivDel = itemView.findViewById(R.id.ivDel);
+                ivEdit = itemView.findViewById(R.id.ivEdit);
+                ivDel = itemView.findViewById(R.id.ivDel);
+
         }
     }
 

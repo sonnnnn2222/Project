@@ -25,6 +25,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.viethcn.shopbanhang.dao.NguoiDungDao;
+import com.viethcn.shopbanhang.fragment.CustomerFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyLoaiSachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
 import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
@@ -34,6 +35,7 @@ import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static SharedPreferences sharedPreferences;
     DrawerLayout drawerLayout;
 
     @Override
@@ -55,47 +57,37 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.menu);
         setTitle("Trang chủ");
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment fragment = null;
-                if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
-                    fragment = new QuanLyPhieuMuonFragment();
-                } else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
-                    fragment = new QuanLyLoaiSachFragment();
-                } else if (menuItem.getItemId() == R.id.mDoanhThu) {
-                    fragment = new ThongKeDoanhThuFragment();
-                } else if (menuItem.getItemId() == R.id.mQuanLySach) {
-                    fragment = new QuanLySachFragment();
-                } else if (menuItem.getItemId() == R.id.mDoiMatKhau) {
-                    showDialogDoiMatKhau();
-                } else if (menuItem.getItemId() == R.id.mDangXuat) {
-                    Intent intent = new Intent(MainActivity.this, Login.class);
-                    startActivity(intent);
-                } else if (menuItem.getItemId() == R.id.mTop10) {
-                    fragment = new ThongKeTop10Fragment();
-                } else if (menuItem.getItemId() == R.id.mThongTin) {
-                    fragment = new ThongTinFragment();
-                }
+        replaceFragment(new CustomerFragment());
 
-                if (fragment != null) {
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.frameLayout, fragment)
-                            .commit();
-
-                    toolbar.setTitle(menuItem.getTitle());
-                }
-
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            Fragment fragment = null;
+            if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
+                replaceFragment(new QuanLyPhieuMuonFragment());
+            } else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
+                replaceFragment(new QuanLyLoaiSachFragment());
+            } else if (menuItem.getItemId() == R.id.mDoanhThu) {
+                replaceFragment(new ThongKeDoanhThuFragment());
+            } else if (menuItem.getItemId() == R.id.mQuanLySach) {
+                replaceFragment(new QuanLySachFragment());
+            } else if (menuItem.getItemId() == R.id.mDoiMatKhau) {
+                showDialogDoiMatKhau();
+            } else if (menuItem.getItemId() == R.id.mDangXuat) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            } else if (menuItem.getItemId() == R.id.mTop10) {
+                replaceFragment(new ThongKeTop10Fragment());
+            } else if (menuItem.getItemId() == R.id.mThongTin) {
+                replaceFragment(new ThongTinFragment());
+            }else {
+                replaceFragment(fragment);
             }
+            toolbar.setTitle(menuItem.getTitle());
+
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
         });
 
-        // Display the user name
-        SharedPreferences sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
-        String hoten = sharedPreferences.getString("hoten", "");
-        txtName.setText("Xin Chào: " + hoten);
+        txtName.setText("Xin Chào: " + checkUser());
         String loai = sharedPreferences.getString("loai", "");
         if (!loai.equals("admin")) {
             Menu menu = navigationView.getMenu();
@@ -104,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
             menu.findItem(R.id.mQuanLyThanhVien).setVisible(false);
             menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
         }
-
-
-
         // hien thi chuc nang cho admin
 
     }
@@ -134,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 String PassMoi = edtPassMoi.getText().toString();
                 String NhapLaiPassMoi = edtNhapLaiPassMoi.getText().toString();
 
-                if (PassCu.equals("") || PassMoi.equals("") || NhapLaiPassMoi.equals("")) {
+                if (PassCu.isEmpty() || PassMoi.isEmpty() || NhapLaiPassMoi.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
                     if (PassMoi.equals(NhapLaiPassMoi)) {
@@ -169,4 +158,17 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public String checkUser(){
+        sharedPreferences = getSharedPreferences("thongtin", MODE_PRIVATE);
+        return sharedPreferences.getString("hoten", "");
+    }
+
+    public void replaceFragment(Fragment f){
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .replace(R.id.frameLayout, f)
+                .commit();
+    }
+
 }
