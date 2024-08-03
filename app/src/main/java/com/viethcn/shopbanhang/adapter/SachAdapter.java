@@ -2,6 +2,7 @@ package com.viethcn.shopbanhang.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,10 +72,23 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> im
         holder.txtGia.setText("Giá sách: " + sach.getGiathue());
         holder.txtMaloai.setText("Mã loại sách: " + sach.getMaloai());
 
+
         if (sach.getTenloai() == null) {
             holder.txtTenloai.setText("Tên loại sách: ");
         } else {
             holder.txtTenloai.setText("Tên loại sách: " + sach.getTenloai());
+        }
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences("thongtin", Context.MODE_PRIVATE);
+        String loai = sharedPreferences.getString("loai", "");
+
+        // Example conditions to control visibility
+        if (loai.equals("admin")) { // Example condition to show/hide edit and delete icons
+            holder.ivEdit.setVisibility(View.VISIBLE);
+            holder.ivDel.setVisibility(View.VISIBLE);
+        } else {
+            holder.ivEdit.setVisibility(View.GONE);
+            holder.ivDel.setVisibility(View.GONE);
         }
 
         holder.ivEdit.setOnClickListener(v -> showDialogUpdate(sach));
