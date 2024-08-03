@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new ThongKeTop10Fragment();
                 } else if (menuItem.getItemId() == R.id.mThongTin) {
                     fragment = new ThongTinFragment();
+                }else if (menuItem.getItemId() == R.id.TrangChu){
+                    startActivity(new Intent(MainActivity.this, MainActivity.class));
                 }
 
                 if (fragment != null) {
@@ -101,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mDoanhThu).setVisible(false);
             menu.findItem(R.id.mTop10).setVisible(false);
-            menu.findItem(R.id.mQuanLyThanhVien).setVisible(false);
             menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
         }
 
