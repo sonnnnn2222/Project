@@ -1,5 +1,7 @@
 package com.viethcn.shopbanhang.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +57,17 @@ public class QuanLySachFragment extends Fragment {
         rcSach.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         fabADD.setOnClickListener(v -> showDialogAddSach());
+
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("thongtin", Context.MODE_PRIVATE);
+        String loai = sharedPreferences.getString("loai", "");
+
+        if (loai.equals("admin")) { // Example condition to show/hide edit and delete icons
+           fabADD.setVisibility(View.VISIBLE);
+        } else {
+            fabADD.setVisibility(View.GONE);
+        }
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
