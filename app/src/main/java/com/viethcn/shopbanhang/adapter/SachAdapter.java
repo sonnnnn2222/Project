@@ -50,7 +50,7 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> im
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            String check = ((MainActivity)c).getIntent().getStringExtra("check");
+            String check = ((MainActivity)context).getIntent().getStringExtra("check");
 
                 txtMa = itemView.findViewById(R.id.tvMa);
                 txtTen = itemView.findViewById(R.id.tvTen);
