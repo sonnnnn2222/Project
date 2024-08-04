@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mDoanhThu).setVisible(false);
             menu.findItem(R.id.mTop10).setVisible(false);
-            menu.findItem(R.id.mQuanLyThanhVien).setVisible(false);
             menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
         }
         // hien thi chuc nang cho admin
