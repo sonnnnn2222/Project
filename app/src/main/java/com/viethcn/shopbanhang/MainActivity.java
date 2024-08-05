@@ -87,14 +87,15 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
-
+        Menu menu = navigationView.getMenu();
         txtName.setText("Xin Chào: " + checkUser());
         String loai = sharedPreferences.getString("loai", "");
         if (!loai.equals("admin")) {
-            Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mDoanhThu).setVisible(false);
             menu.findItem(R.id.mTop10).setVisible(false);
             menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
+        }else {
+            menu.findItem(R.id.mQuanLyPhieuMuon).setVisible(false);
         }
         // hien thi chuc nang cho admin
 
