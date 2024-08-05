@@ -15,8 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.viethcn.shopbanhang.R;
 import com.viethcn.shopbanhang.dao.PhieuMuonDAO;
 import com.viethcn.shopbanhang.model.PhieuMuon;
+import com.viethcn.shopbanhang.model.Sach;
 
 import java.nio.charset.spi.CharsetProvider;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.ViewHold>{
@@ -32,6 +35,8 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
     @NonNull
     @Override
     public ViewHold onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.item_phieumuon, parent, false);
 
@@ -40,6 +45,10 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHold holder, int position) {
+
+        NumberFormat numberFormat = new DecimalFormat("#,###");
+        double myNumber = list.get(position).getTienthue();
+        String formatterNumber = numberFormat.format(myNumber);
         holder.txtMaPhieuMuon.setText("Mã PM: " + list.get(position).getMapm());
         holder.txtTenDangNhap.setText("Tên Đăng nhập: " + list.get(position).getTendangnhap());
         holder.txtMaSach.setText("Mã Sách: " + list.get(position).getMasach());
@@ -55,7 +64,7 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
             holder.btnTraSach.setVisibility(View.VISIBLE);
         }
         holder.txtTrangThai.setText("Trạng thái: " + trangThai);
-        holder.txtTienThue.setText("Mã PM: " + list.get(position).getTienthue());
+        holder.txtTienThue.setText("Tiền thuê: " + formatterNumber + "VNĐ");
 
         holder.btnTraSach.setOnClickListener(new View.OnClickListener() {
             @Override
