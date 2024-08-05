@@ -78,22 +78,24 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new ThongKeTop10Fragment());
             } else if (menuItem.getItemId() == R.id.mThongTin) {
                 replaceFragment(new ThongTinFragment());
-            }else {
-                replaceFragment(fragment);
+            }else if (menuItem.getItemId() == R.id.TrangChu) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
             }
             toolbar.setTitle(menuItem.getTitle());
 
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
-
+        Menu menu = navigationView.getMenu();
         txtName.setText("Xin Chào: " + checkUser());
         String loai = sharedPreferences.getString("loai", "");
         if (!loai.equals("admin")) {
-            Menu menu = navigationView.getMenu();
             menu.findItem(R.id.mDoanhThu).setVisible(false);
             menu.findItem(R.id.mTop10).setVisible(false);
             menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
+        }else {
+            menu.findItem(R.id.mQuanLyPhieuMuon).setVisible(false);
         }
         // hien thi chuc nang cho admin
 
