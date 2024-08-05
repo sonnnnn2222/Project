@@ -9,6 +9,7 @@ import com.viethcn.shopbanhang.database.DbHelper;
 import com.viethcn.shopbanhang.model.LoaiSach;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LoaiSachDAO {
     private DbHelper dbHelper;
@@ -69,5 +70,20 @@ public class LoaiSachDAO {
         contentValues.put("tenloai", loaiSach.getTenloai());
         long check = sqLiteDatabase.update("LOAISACH", contentValues, "maloai =?", new String[]{String.valueOf(loaiSach.getId())});
         return check != -1;
+    }
+
+    public List<String> getCategoryName() {
+        List<String> list = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT tenloai FROM LOAISACH", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return list;
     }
 }

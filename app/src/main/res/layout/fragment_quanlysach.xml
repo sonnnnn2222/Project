@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_search"
+        android:iconifiedByDefault="false"
+        app:queryHint="Tìm kiếm sách"
+        app:iconifiedByDefault="false"
+        />
+
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvSach"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rcvSach"
-        />
+        android:layout_below="@+id/searchView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
