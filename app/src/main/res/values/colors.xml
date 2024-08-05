@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="custom_button_color">#6200EE</color>
     <color name="custom_button_color_pressed">#3700B3</color>
+    <color name="red">#FF0000</color>
+    <color name="grey">#ababab </color>
 </resources>

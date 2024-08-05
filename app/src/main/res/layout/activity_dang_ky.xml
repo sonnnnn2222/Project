@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SIGN UP"
+        android:text="Đăng ký"
         android:textSize="40sp"
         android:gravity="center"
         android:layout_marginBottom="50dp"/>
@@ -26,7 +26,7 @@
         android:textSize="20dp"
         android:textColorHint="#000"
         android:background="@drawable/custom_button"
-        android:hint="Nhâp UseName" />
+        android:hint="Tên đăng nhập" />
 
 
     <EditText
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:background="@drawable/custom_button"
-        android:hint="Nhâp PassWord" />
+        android:hint="Mật khẩu" />
 
 
     <EditText
@@ -51,7 +51,7 @@
         android:inputType="textPassword"
         android:layout_marginBottom="20dp"
         android:background="@drawable/custom_button"
-        android:hint="Nhâp lại PassWord" />
+        android:hint="Nhâp lại mật khẩu" />
 
 
     <EditText
@@ -73,7 +73,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="SIGN UP"
+            android:text="Đăng ký"
             android:textColor="@color/black"
             android:background="@drawable/custom_button"
             app:backgroundTint="@null"
@@ -87,7 +87,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="Trở về"
             android:textColor="@color/black"
             android:background="@drawable/custom_button"
             app:backgroundTint="@null"
