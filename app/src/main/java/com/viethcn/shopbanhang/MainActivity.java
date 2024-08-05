@@ -23,6 +23,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
 import com.viethcn.shopbanhang.dao.NguoiDungDao;
 import com.viethcn.shopbanhang.fragment.CustomerFragment;
@@ -33,10 +36,15 @@ import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     public static SharedPreferences sharedPreferences;
     DrawerLayout drawerLayout;
+    ImageSlider imgSlider;
+    List<SlideModel> listImg = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         View headerLayout = navigationView.getHeaderView(0);
         TextView txtName = headerLayout.findViewById(R.id.txtHeader);
 
+        setSlider();
+
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -60,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new CustomerFragment());
 
         navigationView.setNavigationItemSelectedListener(menuItem -> {
-            Fragment fragment = null;
             if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
                 replaceFragment(new QuanLyPhieuMuonFragment());
             } else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
@@ -87,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
+
         Menu menu = navigationView.getMenu();
         txtName.setText("Xin Chào: " + checkUser());
         String loai = sharedPreferences.getString("loai", "");
@@ -165,11 +175,20 @@ public class MainActivity extends AppCompatActivity {
         return sharedPreferences.getString("hoten", "");
     }
 
-    public void replaceFragment(Fragment f){
+    public void replaceFragment(Fragment f) {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.frameLayout, f)
                 .commit();
+    }
+
+    private void setSlider() {
+        imgSlider = findViewById(R.id.imgSlider);
+
+        listImg.add(new SlideModel(R.drawable.book_rent_banner ,ScaleTypes.FIT));
+        listImg.add(new SlideModel(R.drawable.book_rent ,ScaleTypes.FIT));
+
+        imgSlider.setImageList(listImg);
     }
 
 }

@@ -14,9 +14,19 @@
         
       <androidx.appcompat.widget.Toolbar
           android:id="@+id/toolBar"
+          android:paddingVertical="10dp"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:background="@drawable/loginbackground"/>
+
+      <com.denzcoskun.imageslider.ImageSlider
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:id="@+id/imgSlider"
+          app:iss_auto_cycle="true"
+          app:iss_period="2000"
+          app:iss_delay="2000"
+          />
 
       <FrameLayout
           android:id="@+id/frameLayout"
