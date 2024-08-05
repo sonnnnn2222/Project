@@ -26,6 +26,8 @@ import com.viethcn.shopbanhang.R;
 import com.viethcn.shopbanhang.dao.SachDAO;
 import com.viethcn.shopbanhang.model.Sach;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -74,10 +76,14 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> im
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        NumberFormat numberFormat = new DecimalFormat("#,###");
+        double myNumber = sachList.get(position).getGiathue();
+        String formatterNumber = numberFormat.format(myNumber);
         Sach sach = sachList.get(position);
         holder.txtMa.setText("Mã sách: " + sach.getMasach());
         holder.txtTen.setText("Tên sách: " + sach.getTenSach());
-        holder.txtGia.setText("Giá sách: " + sach.getGiathue());
+        holder.txtGia.setText("Giá sách: " + formatterNumber + "VNĐ");
         holder.txtMaloai.setText("Mã loại sách: " + sach.getMaloai());
 
 
