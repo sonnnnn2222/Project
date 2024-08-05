@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.viethcn.shopbanhang.R;
+import com.viethcn.shopbanhang.adapter.CategoryAdapter;
 import com.viethcn.shopbanhang.adapter.MainViewCustomerAdapter;
 import com.viethcn.shopbanhang.dao.LoaiSachDAO;
 import com.viethcn.shopbanhang.dao.SachDAO;
@@ -46,11 +49,10 @@ public class CustomerFragment extends Fragment {
     private void showCategory() {
         listCategory = new ArrayList<>();
         listCategory = CategoryDAO.getCategoryName();
-        MainViewCustomerAdapter adapter = new MainViewCustomerAdapter(getContext(), listCategory);
+        CategoryAdapter adapter = new CategoryAdapter(listCategory);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         rcvCategory.setLayoutManager(layoutManager);
         rcvCategory.setAdapter(adapter);
-
     }
 
     private void showBook(){
