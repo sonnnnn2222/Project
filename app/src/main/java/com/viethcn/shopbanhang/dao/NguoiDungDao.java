@@ -24,7 +24,7 @@ public class NguoiDungDao {
 
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM NGUOIDUNG WHERE tendangnhap = ? AND matkhau = ?", new String[]{userName, passWord});
         // Nếu cursor có dữ liệu thì trả về true ngược lại là false
-       if (cursor.getCount() !=0) {
+        if (cursor.getCount() !=0) {
            cursor.moveToFirst();
            SharedPreferences.Editor editor = sharedPreferences.edit();
            editor.putString("tendangnhap", cursor.getString(0));
@@ -33,9 +33,9 @@ public class NguoiDungDao {
            editor.putString("loai", cursor.getString(3));
            editor.commit();
            return true;
-       }else {
+        }else {
            return false;
-       }
+        }
     }
 
     // dang ky
