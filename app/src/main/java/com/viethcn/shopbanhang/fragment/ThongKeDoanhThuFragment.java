@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.viethcn.shopbanhang.R;
-import com.viethcn.shopbanhang.dao.ThongKeDAO;
 
 
 import java.util.Calendar;

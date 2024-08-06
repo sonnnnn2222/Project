@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.viethcn.shopbanhang.R;
-import com.viethcn.shopbanhang.adapter.Top10Adapter;
-import com.viethcn.shopbanhang.dao.ThongKeDAO;
 import com.viethcn.shopbanhang.model.Sach;
 
 import java.util.ArrayList;
