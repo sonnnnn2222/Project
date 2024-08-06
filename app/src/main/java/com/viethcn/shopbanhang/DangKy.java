@@ -26,6 +26,7 @@ public class DangKy extends AppCompatActivity {
         EditText edtRePass = findViewById(R.id.edtRePass);
         ImageView imageView = findViewById(R.id.imgRegister);
         TextView txtBack = findViewById(R.id.txtBack);
+        EditText edtFullName = findViewById(R.id.edtFullName);
         nguoiDungDao = new NguoiDungDao(this);
 
 
@@ -35,12 +36,13 @@ public class DangKy extends AppCompatActivity {
                 String user = edtUser.getText().toString();
                 String pass = edtPass.getText().toString();
                 String rePass = edtRePass.getText().toString();
+                String fullName = edtFullName.getText().toString();
 
 
                 if (!pass.equals(rePass)) {
                     Toast.makeText(DangKy.this, "Không trùng mật khẩu", Toast.LENGTH_SHORT).show();
                 }else {
-                    boolean check = nguoiDungDao.Register(user, pass, rePass);
+                    boolean check = nguoiDungDao.Register(user, pass, fullName);
                     if (check) {
                         Toast.makeText(DangKy.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                         finish();
