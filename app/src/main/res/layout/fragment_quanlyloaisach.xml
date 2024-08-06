@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="THÊM LOẠI SÁCH MỚI"
-        android:textColor="#FF5722"
+        android:textColor="#BA833D"
         android:textSize="24sp"
         android:layout_marginBottom="16dp"
         android:textStyle="bold"/>
@@ -41,7 +41,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thêm"
-        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="#F6F4F4"
         android:background="@drawable/custom_btn"
         android:layout_marginBottom="16dp"/>
 
@@ -49,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DANH SÁCH LOẠI SÁCH"
-        android:textColor="#FF5722"
+        android:textColor="#BA833D"
         android:textSize="24sp"
         android:layout_marginBottom="16dp"
         android:textStyle="bold"/>
