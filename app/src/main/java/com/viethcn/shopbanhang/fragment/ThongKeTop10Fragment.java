@@ -1,5 +1,7 @@
 package com.viethcn.shopbanhang.fragment;
 
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,4 +36,5 @@ public class ThongKeTop10Fragment extends Fragment {
 
         return view;
     }
+
 }

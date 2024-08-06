@@ -15,7 +15,7 @@ import com.viethcn.shopbanhang.model.Sach;
 
 import java.util.ArrayList;
 
-public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder>{
+public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder> {
     private Context context;
     private ArrayList<Sach> list;
 
@@ -56,4 +56,5 @@ public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder>{
             txtSoLuong = itemView.findViewById(R.id.txtSoLuong);
         }
     }
+
 }

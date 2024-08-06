@@ -29,7 +29,6 @@ import com.viethcn.shopbanhang.fragment.CustomerFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyLoaiSachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
 import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
-import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new CustomerFragment());
 
         navigationView.setNavigationItemSelectedListener(menuItem -> {
-            Fragment fragment = null;
             if (menuItem.getItemId() == R.id.mQuanLyPhieuMuon) {
                 replaceFragment(new QuanLyPhieuMuonFragment());
             } else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
@@ -87,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
+
         Menu menu = navigationView.getMenu();
         txtName.setText("Xin Chào: " + checkUser());
         String loai = sharedPreferences.getString("loai", "");
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         return sharedPreferences.getString("hoten", "");
     }
 
-    public void replaceFragment(Fragment f){
+    public void replaceFragment(Fragment f) {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.frameLayout, f)
