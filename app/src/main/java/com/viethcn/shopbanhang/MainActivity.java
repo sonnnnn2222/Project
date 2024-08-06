@@ -23,9 +23,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.material.navigation.NavigationView;
 import com.viethcn.shopbanhang.dao.NguoiDungDao;
 import com.viethcn.shopbanhang.fragment.CustomerFragment;
@@ -36,15 +33,10 @@ import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
 import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     public static SharedPreferences sharedPreferences;
     DrawerLayout drawerLayout;
-    ImageSlider imgSlider;
-    List<SlideModel> listImg = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         View headerLayout = navigationView.getHeaderView(0);
         TextView txtName = headerLayout.findViewById(R.id.txtHeader);
-
-        setSlider();
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -180,15 +170,6 @@ public class MainActivity extends AppCompatActivity {
         manager.beginTransaction()
                 .replace(R.id.frameLayout, f)
                 .commit();
-    }
-
-    private void setSlider() {
-        imgSlider = findViewById(R.id.imgSlider);
-
-        listImg.add(new SlideModel(R.drawable.book_rent_banner ,ScaleTypes.FIT));
-        listImg.add(new SlideModel(R.drawable.book_rent ,ScaleTypes.FIT));
-
-        imgSlider.setImageList(listImg);
     }
 
 }
