@@ -21,7 +21,7 @@ public class DangKy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dang_ky);
-        EditText edtUser = findViewById(R.id.edtUseName);
+        EditText edtUser = findViewById(R.id.edtUserName);
         EditText edtPass = findViewById(R.id.edtPassWord);
         EditText edtRePass = findViewById(R.id.edtRePass);
         ImageView imageView = findViewById(R.id.imgRegister);

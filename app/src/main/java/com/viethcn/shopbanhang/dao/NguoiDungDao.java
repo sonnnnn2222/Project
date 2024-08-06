@@ -51,9 +51,9 @@ public class NguoiDungDao {
 
     // forgot
 
-    public String ForgotPassWord(String email) {
+    public String ForgotPassWordByUsername(String username) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select matkhau from NGUOIDUNG where tendangnhap = ?", new String[]{email});
+        Cursor cursor = sqLiteDatabase.rawQuery("select matkhau from NGUOIDUNG where tendangnhap = ?", new String[]{username});
         if (cursor.getCount() > 0) {
             // di chuyển con nháy chuột lên trên đầu khi select dữ liệu
             cursor.moveToFirst();
@@ -81,4 +81,6 @@ public class NguoiDungDao {
         }
         return 0;
     }
+
+
 }
