@@ -29,8 +29,6 @@ import com.viethcn.shopbanhang.fragment.CustomerFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyLoaiSachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
 import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
-import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFragment;
-import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
 public class MainActivity extends AppCompatActivity {
