@@ -36,7 +36,7 @@
         android:id="@+id/btnThem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#D67D7D"
+        android:background="@drawable/custom_btn"
         android:textColor="#151515"
         android:text="Thêm"
         android:layout_marginBottom="16dp"/>

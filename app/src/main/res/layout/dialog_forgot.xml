@@ -40,7 +40,7 @@
             android:id="@+id/btnSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FB8C00"
+            android:background="@drawable/custom_btn"
             android:text="Gửi mật khẩu"
             android:textColor="@android:color/white"
             android:textSize="18sp"
