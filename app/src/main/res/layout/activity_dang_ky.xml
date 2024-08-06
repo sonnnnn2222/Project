@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
-                android:text="Create\nAccount"
+                android:text="ĐăngKý"
                 android:textColor="#ea6d35"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -44,13 +44,14 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
+                android:textColor="#000"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/edittext_background"
                 android:drawableStart="@drawable/name"
                 android:drawablePadding="16dp"
                 android:textColorHint="#121010"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="Nhập Tên người dùng"
                 android:inputType="textPersonName"
                 android:padding="8dp" />
 
@@ -61,12 +62,14 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
+                android:textColor="#000"
+
                 android:background="@drawable/edittext_background"
                 android:drawableStart="@drawable/password"
                 android:drawablePadding="16dp"
                 android:textColorHint="#101010"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="Nhập mật khẩu"
                 android:inputType="textPassword"
                 android:padding="8dp" />
 
@@ -77,12 +80,13 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
+                android:textColor="#000"
                 android:background="@drawable/edittext_background"
                 android:drawableStart="@drawable/password"
                 android:drawablePadding="16dp"
                 android:textColorHint="#101010"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="Nhập lại mật khẩu"
                 android:inputType="textPassword"
                 android:padding="8dp" />
 
@@ -100,7 +104,7 @@
                 android:id="@+id/txtBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Go to back?"
+                android:text="@string/trovedangnhap"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="#3b608c"
