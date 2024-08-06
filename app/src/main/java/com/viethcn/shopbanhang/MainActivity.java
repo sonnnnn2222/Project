@@ -63,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new QuanLyPhieuMuonFragment());
             } else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
                 replaceFragment(new QuanLyLoaiSachFragment());
-            } else if (menuItem.getItemId() == R.id.mDoanhThu) {
-                replaceFragment(new ThongKeDoanhThuFragment());
+
             } else if (menuItem.getItemId() == R.id.mQuanLySach) {
                 replaceFragment(new QuanLySachFragment());
             } else if (menuItem.getItemId() == R.id.mDoiMatKhau) {

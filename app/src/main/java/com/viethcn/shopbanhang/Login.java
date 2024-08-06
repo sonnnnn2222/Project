@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -37,8 +38,13 @@ public class Login extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = edtUser.getText().toString();
-                String pass = edtPassWord.getText().toString();
+                String user = edtUser.getText().toString().trim();
+                String pass = edtPassWord.getText().toString().trim();
+
+                if (user.isEmpty() || pass.isEmpty()) {
+                    Toast.makeText(Login.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Kiểm tra thông tin đăng nhập
                 boolean check = nguoiDungDao.CheckLogin(user, pass);
@@ -47,7 +53,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Login.this, MainActivity.class));
                 } else {
-                    Toast.makeText(Login.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Đăng nhập thất bại. Vui lòng kiểm tra lại tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -98,9 +104,19 @@ public class Login extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edtEmail.getText().toString();
+                String email = edtEmail.getText().toString().trim();
+                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(Login.this, "Vui lòng nhập địa chỉ email hợp lệ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String matkhau = nguoiDungDao.ForgotPassWord(email);
-                Toast.makeText(Login.this, matkhau, Toast.LENGTH_SHORT).show();
+                if (matkhau != null) {
+                    Toast.makeText(Login.this, "Mật khẩu đã được gửi đến email của bạn", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Login.this, "Email không tồn tại trong hệ thống", Toast.LENGTH_SHORT).show();
+                }
+                alertDialog.dismiss();
             }
         });
     }
