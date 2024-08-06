@@ -4,4 +4,7 @@
     <string name="sing_up">Don\'t have account?<b>Sign up</b></string>
     <string name="update"><u>Chỉnh sửa </u></string>
     <string name="delete"><u>Xoá</u></string>
+    <string name="dangky">Bạn đã có tài khoản chưa? <u>Đăng ký</u></string>
+    <string name="quenmatkhau"><u>Quên mật khẩu?</u></string>
+    <string name="trovedangnhap"><u>Trở về đăng nhập</u></string>
 </resources>

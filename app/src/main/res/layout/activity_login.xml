@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8EEEC">
@@ -23,7 +24,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/top_background1" />
 
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
-                android:text="Login"
+                android:text="Đăng nhập"
                 android:textColor="#ea6d35"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -51,7 +52,7 @@
                 android:drawablePadding="16dp"
                 android:textColorHint="#121010"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="Nhập tên người dùng"
                 android:inputType="textPersonName"
                 android:padding="8dp" />
 
@@ -68,7 +69,7 @@
                 android:textColorHint="#101010"
                 android:ems="10"
                 android:textColor="#000"
-                android:hint="Password"
+                android:hint="Mật khẩu"
                 android:inputType="textPassword"
                 android:padding="8dp" />
 
@@ -81,48 +82,11 @@
                 android:layout_marginEnd="32dp"
                 app:srcCompat="@drawable/btn_arraw1" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-                android:orientation="horizontal">
-
-                <Button
-
-                    style="@android:style/Widget.Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:drawablePadding="16dp"
-                    android:padding="16dp"
-                    android:drawableEnd="@drawable/facebook"
-                    android:background="@drawable/btn_background"
-                    android:layout_weight="1"
-                    android:text="Facebook"
-                    android:textSize="16sp"
-                    android:textColor="#3b608c"
-                    android:layout_marginEnd="8dp"
-                    android:textStyle="bold"/>
-                <Button
-                    style="@android:style/Widget.Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:drawablePadding="16dp"
-                    android:padding="16dp"
-                    android:drawableEnd="@drawable/google"
-                    android:background="@drawable/btn_background"
-                    android:layout_weight="1"
-                    android:text="Google"
-                    android:textSize="16sp"
-                    android:layout_marginStart="8dp"
-                    android:textColor="#3b608c"
-                    android:textStyle="bold"/>
-            </LinearLayout>
             <TextView
                 android:id="@+id/txtForgot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?"
+                android:text="@string/quenmatkhau"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="#3b608c"
@@ -133,7 +97,7 @@
                 android:id="@+id/txtSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Are you new users? Resgister"
+                android:text="@string/dangky"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="#3b608c"
