@@ -40,7 +40,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edtUseName"
+                android:id="@+id/edtUserName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="32dp"

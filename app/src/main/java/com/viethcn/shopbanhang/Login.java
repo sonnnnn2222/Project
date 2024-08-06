@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Ánh xạ các thành phần giao diện
-        EditText edtUser = findViewById(R.id.edtUseName);
+        EditText edtUser = findViewById(R.id.edtUserName);
         EditText edtPassWord = findViewById(R.id.edtPassWord);
         ImageView imageView = findViewById(R.id.imgLogin);
         TextView txtForgot = findViewById(R.id.txtForgot);
@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         // Ánh xạ các thành phần trong hộp thoại
-        EditText edtEmail = view.findViewById(R.id.edtEmail);
+        EditText edtUsername = view.findViewById(R.id.edtUserName);
         Button btnSend = view.findViewById(R.id.btnSend);
         Button btnCancel = view.findViewById(R.id.btnCancel);
 
@@ -104,20 +104,22 @@ public class Login extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edtEmail.getText().toString().trim();
-                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    Toast.makeText(Login.this, "Vui lòng nhập địa chỉ email hợp lệ", Toast.LENGTH_SHORT).show();
+                String username = edtUsername.getText().toString().trim();
+                if (username.isEmpty()) {
+                    Toast.makeText(Login.this, "Vui lòng nhập tên người dùng hợp lệ", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String matkhau = nguoiDungDao.ForgotPassWord(email);
+                String matkhau = nguoiDungDao.ForgotPassWordByUsername(username);
                 if (matkhau != null) {
-                    Toast.makeText(Login.this, "Mật khẩu đã được gửi đến email của bạn", Toast.LENGTH_SHORT).show();
+                    // Hiển thị mật khẩu lên màn hình
+                    Toast.makeText(Login.this, "Mật khẩu của bạn là: " + matkhau, Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(Login.this, "Email không tồn tại trong hệ thống", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Tên người dùng không tồn tại trong hệ thống", Toast.LENGTH_SHORT).show();
                 }
                 alertDialog.dismiss();
             }
         });
     }
+
 }

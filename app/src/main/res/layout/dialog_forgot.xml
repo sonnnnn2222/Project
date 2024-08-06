@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     app:cardCornerRadius="15dp"
+    android:background="#F8EEEC"
     app:cardElevation="8dp">
 
     <LinearLayout
@@ -20,15 +21,17 @@
             android:text="Lấy lại mật khẩu"
             android:gravity="center"
             android:textSize="24sp"
-            android:textColor="#FF4081"
+            android:textColor="#FB8C00"
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edtUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nhập tên tài khoản"
+            android:textColor="@color/black"
+            android:textColorHint="#101010"
             android:background="@drawable/customedt"
             android:padding="12dp"
             android:layout_marginBottom="20dp"/>
@@ -37,7 +40,7 @@
             android:id="@+id/btnSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_dongy"
+            android:background="#FB8C00"
             android:text="Gửi mật khẩu"
             android:textColor="@android:color/white"
             android:textSize="18sp"
