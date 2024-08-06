@@ -4,22 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FFFFFF">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="THÊM LOẠI SÁCH MỚI"
-        android:textColor="#AA2A2A"
-        android:textSize="20dp"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#FF5722"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/edtLoaiSach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="26sp"
-        android:hint="Nhập tên sách"
+        android:textSize="18sp"
+        android:hint="Nhập tên loại sách"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
         android:layout_marginBottom="16dp"/>
 
     <Button
@@ -27,8 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sửa"
-        android:textColor="#151515"
-        android:backgroundTint="#DDB1E37D"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF8A65"
         android:layout_marginBottom="16dp"
         android:visibility="gone"/>
 
@@ -36,23 +40,25 @@
         android:id="@+id/btnThem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_btn"
-        android:textColor="#151515"
         android:text="Thêm"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_btn"
         android:layout_marginBottom="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DANH SÁCH LOẠI SÁCH"
-        android:textColor="#AA2A2A"
-        android:textSize="20dp"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#FF5722"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerLoaiSach"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
 </LinearLayout>
