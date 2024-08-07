@@ -29,6 +29,7 @@ import com.viethcn.shopbanhang.fragment.CustomerFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyLoaiSachFragment;
 import com.viethcn.shopbanhang.fragment.QuanLyPhieuMuonFragment;
 import com.viethcn.shopbanhang.fragment.QuanLySachFragment;
+import com.viethcn.shopbanhang.fragment.ThongKeDoanhThuFrament;
 import com.viethcn.shopbanhang.fragment.ThongKeTop10Fragment;
 import com.viethcn.shopbanhang.fragment.ThongTinFragment;
 
@@ -63,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new QuanLyPhieuMuonFragment());
             } else if (menuItem.getItemId() == R.id.mQuanLyLoaiSach) {
                 replaceFragment(new QuanLyLoaiSachFragment());
-
             } else if (menuItem.getItemId() == R.id.mQuanLySach) {
                 replaceFragment(new QuanLySachFragment());
             } else if (menuItem.getItemId() == R.id.mDoiMatKhau) {
@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
             }else if (menuItem.getItemId() == R.id.TrangChu) {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
+            }else if (menuItem.getItemId() == R.id.mDoanhThu) {
+                replaceFragment(new ThongKeDoanhThuFrament());
             }
             toolbar.setTitle(menuItem.getTitle());
 
