@@ -22,6 +22,7 @@ import com.viethcn.shopbanhang.dao.SachDAO;
 
 import java.util.ArrayList;
 import java.util.List;
+//
 
 public class CustomerFragment extends Fragment {
     private RecyclerView rcvCategory, rcvBook;

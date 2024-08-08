@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/top_background1" />
 
@@ -102,7 +102,7 @@
                 android:drawablePadding="16dp"
                 android:textColorHint="#121010"
                 android:ems="10"
-                android:hint="Fullname"
+                android:hint="Họ tên"
                 android:inputType="textPersonName"
                 android:padding="8dp" />
 
