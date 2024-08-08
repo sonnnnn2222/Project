@@ -9,23 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bắt đầu từ"
+        android:layout_marginBottom="5sp"
         android:textSize="20sp"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="Chọn ngày bắt đầu"
+        android:layout_marginBottom="5sp"
         android:id="@+id/edtStart"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kết thúc ngày"
+        android:layout_marginBottom="5sp"
         android:textSize="20sp"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginBottom="10sp"
         android:hint="Chọn ngày kết thúc"
         android:id="@+id/edtEnd"
         />
@@ -33,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thống kê"
+        android:layout_marginBottom="10sp"
+        android:background="@drawable/custom_button"
         android:id="@+id/btnThongKe"
         />
     <TextView
