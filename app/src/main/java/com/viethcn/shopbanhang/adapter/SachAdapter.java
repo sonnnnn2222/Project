@@ -1,8 +1,5 @@
 package com.viethcn.shopbanhang.adapter;
 
-import static androidx.core.content.ContextCompat.getString;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
