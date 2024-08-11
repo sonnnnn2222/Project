@@ -33,7 +33,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String dNguoiDung = "INSERT INTO NGUOIDUNG VALUES('admin', '12345', 'admin', 'admin'), ('nhutviet', '12345', 'Hoàng Công Nhựt Việt', ' '), ('giabao', '12345', 'Trần Gia Bảo', ' '), ('xuanson', '12345', 'Bùi Xuân Sơn', ' '), ('ductin', '12345', 'Lại Đức Tín',' '), ('phuquy', '12345', 'Bùi Phú Quý', ' ')";
         db.execSQL(dNguoiDung);
 
-        db.execSQL("INSERT INTO LOAISACH VALUES (1, 'Thiếu nhi'),(2,'Tình cảm'),(3, 'Giáo khoa')");
+        db.execSQL("INSERT INTO LOAISACH VALUES (1, 'Thiếu nhi'),(2,'Tình cảm'),(3, 'Giáo khoa'),(4, 'Tiểu Thuyết'),(5, ' Truyện Tranh'),(6, 'Trinh Thám'),(7, 'Tình Cảm'),(8, 'Khoa Học Viễn Tưởng'),(9, 'Đời Sống'),(10, 'Triết Học')");
         db.execSQL("INSERT INTO SACH VALUES (1, 'Muốn an được an', 2500, 1), (2, 'Từng bước nở hoa sen', 1000, 1), (3, 'Đạo phật của tuổi trẻ', 2000, 3), (4, 'Giận', 2000, 3), (5, 'Phép lạ của sự tỉnh thức', 2000, 3), (6, 'Tĩnh lặng', 2000, 3), (7, 'An lạc từng bước chân', 2000, 3), (8, 'Hạnh phúc cầm tay', 2000, 3), (9, 'Tìm bình yên trong gia đình', 2000, 3), (10, 'Phải Lòng Với Cô Đơn', 2000, 3), (11, 'Gái Phải Mạnh Mẽ', 2000, 3), (12, 'Tôi Tài Giỏi, Bạn Cũng Thế!', 2000, 3), (13, 'Bí Quyết Tay Trắng Thành Triệu Phú', 2000, 3), (14, ' Bí Quyết Gây Dựng Cơ Nghiệp Bạc Tỷ', 2000, 3), (15, 'Làm Chủ Tư Duy, Thay Đổi Vận Mệnh', 2000, 3)");
 
         //trả sách: 1: đã trả - 0: chưa trả

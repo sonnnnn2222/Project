@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
+//
     private void showDialogForgot() {
         // Tạo và hiển thị hộp thoại quên mật khẩu
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
