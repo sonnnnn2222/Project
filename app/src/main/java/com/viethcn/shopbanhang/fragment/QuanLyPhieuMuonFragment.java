@@ -38,12 +38,14 @@ public class QuanLyPhieuMuonFragment extends Fragment {
     PhieuMuonDAO phieuMuonDAO;
     ArrayList<PhieuMuon> list;
     RecyclerView recyclerQLPhieuMuon;
+    Context context;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_quanlyphieumuon, container, false);
         recyclerQLPhieuMuon = view.findViewById(R.id.recyclerQLPhieuMuon);
         FloatingActionButton floatAdd = view.findViewById(R.id.floatAdd);
+        context = getContext();
 
         loadData();
 
@@ -53,6 +55,13 @@ public class QuanLyPhieuMuonFragment extends Fragment {
                 showDialog();
             }
         });
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences("thongtin", Context.MODE_PRIVATE);
+        String loai = sharedPreferences.getString("loai", "");
+
+        if (loai.equals("admin")) {
+            floatAdd.setVisibility(View.GONE);
+        }
         return view;
 
 

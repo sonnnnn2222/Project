@@ -2,6 +2,7 @@ package com.viethcn.shopbanhang.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,12 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
         holder.txtTrangThai.setText("Trạng thái: " + trangThai);
         holder.txtTienThue.setText("Tiền thuê: " + formatterNumber + "VNĐ");
 
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences("thongtin", Context.MODE_PRIVATE);
+        String loai = sharedPreferences.getString("loai", "");
+        if (loai.equals("admin")) {
+            holder.btnTraSach.setVisibility(View.GONE);
+        }
         holder.btnTraSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
