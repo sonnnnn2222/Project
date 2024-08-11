@@ -27,6 +27,7 @@ public class MainViewCustomerAdapter extends RecyclerView.Adapter<MainViewCustom
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtModelName;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -45,11 +46,19 @@ public class MainViewCustomerAdapter extends RecyclerView.Adapter<MainViewCustom
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtModelName.setText(data.get(position));
+        holder.txtModelName.setText(maxLine(data.get(position)));
     }
 
     @Override
     public int getItemCount() {
         return data.size();
+    }
+
+    private String maxLine(String text) {
+        if (text.length() > 20) {
+            return text.substring(0, 12) + "...";
+        } else {
+            return text;
+        }
     }
 }

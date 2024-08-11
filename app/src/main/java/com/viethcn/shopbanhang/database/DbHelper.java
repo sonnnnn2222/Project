@@ -23,7 +23,8 @@ public class DbHelper extends SQLiteOpenHelper {
         String dbSach = "CREATE TABLE SACH (masach integer PRIMARY KEY autoincrement, tensach text, giathue integer, maloai integer references LOAISACH(maloai))";
         db.execSQL(dbSach);
 
-        // PHIEUMUON => mapm integer PRIMARY KEY autoincrement, matv integer references THANHVIEN(matv),
+        // PHIEUMUON => mapm integer PRIMARY KEY autoincrement,
+        //              matv integer references THANHVIEN(matv),
         //              tendangnhap TEXT references NGUOIDUNG(tendangnhap),
         //              masach integer references SACH(masach),
         //              ngay text, trasach integer, tienthue integer
