@@ -51,7 +51,6 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
         double myNumber = list.get(position).getTienthue();
         String formatterNumber = numberFormat.format(myNumber);
         holder.txtMaPhieuMuon.setText("Mã PM: " + list.get(position).getMapm());
-        holder.txtTenDangNhap.setText("Tên Đăng nhập: " + list.get(position).getTendangnhap());
         holder.txtMaSach.setText("Mã Sách: " + list.get(position).getMasach());
         holder.txtTenSach.setText("Tên sách: " + list.get(position).getTensach());
         holder.txtNgay.setText("Ngày mươn: " + list.get(position).getNgay());
@@ -102,7 +101,6 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
         public ViewHold(@NonNull View itemView) {
             super(itemView);
             txtMaPhieuMuon = itemView.findViewById(R.id.txtMaphieumuon);
-            txtTenDangNhap = itemView.findViewById(R.id.txtTenDangnhap);
             txtMaSach = itemView.findViewById(R.id.txtMaSach);
             txtTenSach = itemView.findViewById(R.id.txtTenSach);
             txtNgay = itemView.findViewById(R.id.txtNgay);
