@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             menu.findItem(R.id.mTop10).setVisible(false);
             menu.findItem(R.id.mQuanLyLoaiSach).setVisible(false);
         }else {
-            menu.findItem(R.id.mQuanLyPhieuMuon).setVisible(false);
+
         }
         // hien thi chuc nang cho admin
 
