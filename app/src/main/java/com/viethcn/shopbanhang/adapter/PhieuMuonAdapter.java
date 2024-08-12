@@ -95,7 +95,7 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonAdapter.View
     }
 
     public class ViewHold extends RecyclerView.ViewHolder {
-        TextView txtMaPhieuMuon, txtTenDangNhap, txtMaSach, txtTenSach, txtNgay, txtTrangThai, txtTienThue;
+        TextView txtMaPhieuMuon, txtMaSach, txtTenSach, txtNgay, txtTrangThai, txtTienThue;
         Button btnTraSach;
 
         public ViewHold(@NonNull View itemView) {

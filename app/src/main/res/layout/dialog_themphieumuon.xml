@@ -8,10 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sách"
-        android:textSize="24dp"
+        android:gravity="center"
+        android:textSize="30dp"
         android:textColor="#ff00"/>
     <Spinner
         android:id="@+id/spnSach"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
